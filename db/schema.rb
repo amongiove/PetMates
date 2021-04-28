@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 2021_04_28_180844) do
     t.integer "user_id", null: false
     t.integer "job_id", null: false
     t.text "content"
-    t.datetime "sent_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["job_id"], name: "index_messages_on_job_id"
@@ -40,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_180844) do
   create_table "pets", force: :cascade do |t|
     t.integer "owner_id", null: false
     t.string "name"
-    t.string "type"
+    t.string "pet_type"
     t.string "breed"
     t.string "color"
     t.string "sex"

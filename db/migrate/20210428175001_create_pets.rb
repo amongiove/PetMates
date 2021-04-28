@@ -3,7 +3,7 @@ class CreatePets < ActiveRecord::Migration[6.1]
     create_table :pets do |t|
       t.references :owner, null: false, foreign_key: true
       t.string :name
-      t.string :type
+      t.string :pet_type
       t.string :breed
       t.string :color
       t.string :sex
