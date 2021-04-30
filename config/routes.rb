@@ -5,10 +5,8 @@ Rails.application.routes.draw do
 
   get '/signup', to: "users#new"
   post '/signup', to: "users#create"
-  # get '/signup/sitter', to: "users#new"
-  # get '/signup/owner', to: "users#new"
-  # post '/signup/sitter', to: "users#create"
-  # post '/signup/owner', to: "users#create"
+  
+  get '/onboarding', to: "users#user_profile"
 
 
 

@@ -3,15 +3,17 @@
         <div class="text-white align-items-center p-5 text-center justify-content-center">
             <div class="signup-form col-md-4 mx-auto">
                 <h1 class="mb-0 mt-4 ">Sign Up</h1><br><br>
+                <div class="errors">
+                    <%=flash[:message]%>
+                </div>
 
                 <%= simple_form_for :user do |f| %>
-                    <%= f.error_notification %>
-
                     <%= f.input :name %>
-                    <%= f.input :email, input_html: { autocomplete: 'email' } %>
-                    <%= f.input :password, input_html: { autocomplete: 'current-password' } %>
-                    <%= f.input :verify_password %>
+                    <%= f.input :email %>
+                    <%= f.input :password %>
 
+                    #TODO: verify password field here
+                    
                     <h3 class="mb-0 mt-4 ">Choose an option.</h3><br>
                     <%= f.input :type, as: :radio_buttons, collection: user_types, wrapper: :horizontal_collection_inline, label: false %>
                     
