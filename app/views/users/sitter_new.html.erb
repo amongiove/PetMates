@@ -1,0 +1,16 @@
+<h1>Create your Sitter Profile</h1>
+
+<%= form_for :user, url: '/users' do |f| %>
+    <%=f.hidden_field :type, :value=>params["type"] %>
+
+    <%= render "users/user_info" %>
+    <p>
+        <%= f.label :bio %>
+        <%= f.text_area :bio %>
+    </p>
+    <p>
+        <%= f.label :rate %>
+        <%= f.text_field :rate %>
+    </p>
+    <%= f.submit "Create Profile" %>
+<% end %>

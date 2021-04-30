@@ -5,6 +5,11 @@ class UsersController < ApplicationController
 
     def new
         type = params["type"]
+        if type == "Owner"
+            render :owner_new
+        else
+            render :sitter_new
+        end
     end
 
     def create

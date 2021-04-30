@@ -1,0 +1,14 @@
+<h1>Create your <%=Owner %> Profile</h1>
+
+<%= form_for :user, url: '/users' do |f| %>
+    <%=f.hidden_field :type, :value=>params["type"] %>  
+
+    <%= render 'users/user_info' %>   
+    
+    <p>
+        <%= f.label :home_access_information %>
+        <%= f.text_area :home_access_info %>
+    </p>
+    
+    <%= f.submit "Create Profile" %>
+<% end %>
