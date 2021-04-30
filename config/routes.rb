@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   
   get '/onboarding', to: "users#user_profile"
 
-
+  get '/login', to: "sessions#new"
+  post '/login', to: "sessions#create"
+  # delete '/logout', to: "sessions#destroy"
 
   resources :users
 

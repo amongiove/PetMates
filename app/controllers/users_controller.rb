@@ -7,7 +7,7 @@ class UsersController < ApplicationController
         #TODO: put verify pw and authenticate here
         @user = User.new(user_params)
         if @user.save
-            #session[:user_id] = @user.id
+            session[:user_id] = @user.id
             redirect_to onboarding_path(@user)
             
         else
