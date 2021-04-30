@@ -1,1 +1,30 @@
-users new
+<h1>Create your <%=params["type"]%> Profile</h1>
+
+<%= form_for :user, url: '/users' do |f| %>
+
+    <%=f.hidden_field :type, :value=>params["type"] %>
+
+    Name: <%= f.text_field :name %>
+    Email: <%= f.text_field :email %>
+    Password: <%= f.password_field :password %>
+    Verify Password: <%= f.password_field :verify_password %> 
+    Address: 
+        <%= f.text_field :street_address %>
+        <%= f.text_field :city %>
+        <%= f.text_field :state %>
+        <%= f.text_field :zip %>
+
+
+    Phone Number: <%= f.text_field :phone_number %>
+
+    <%if params["type"] == "Owner" %>
+        Home Access Information: <%= f.text_area :home_access_info %>
+    <% end %>
+
+    <%if params["type"] == "Sitter" %>
+        Bio: <%= f.text_area :bio %>
+        Rate: <%= f.text_field :rate %>
+    <% end %>
+
+  <%= f.submit "Create Profile" %>
+<% end %>
