@@ -1,4 +1,4 @@
-<%= simple_form_for :user, url: '/users' do |f| %>
+  <%= simple_form_for :user, url: '/users' do |f| %>
     <%= f.error_notification %>
 
     <%= f.input :name %>
@@ -6,13 +6,12 @@
     <%= f.input :password, input_html: { autocomplete: 'current-password' } %>
     <%= f.input :verify_password %>
 
-    Address:
+    <br>Address:
         <%= f.input :street_address %>
         <%= f.input :city %>       
         <%= f.input :state, collection: us_states, prompt: :select%>
         <%= f.input :zip %>
 
-        <%= f.input :phone_number %>
-       
-
+    <%= f.input :phone_number %>
 <%end%>
+        
