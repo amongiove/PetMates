@@ -14,12 +14,12 @@
 		<div class="d-md-flex align-items-center h-md-100 p-5 justify-content-center">
 			<form class="border rounded p-5">
 				<h3 class="mb-4 text-center">Log In</h3>
-				<%= simple_form_for :user do |f| %>
+				<%= simple_form_for :user, method: :post, url: "/login" do |f| %>
                     <%= f.input :email, placeholder: "E-mail", label: false %><br>
                     <%= f.input :password, placeholder: "Password", label: false %>
                                     
                     <br><%= f.button :submit, class: "text-white btn bg-blue btn-round btn-block shadow-sm", value: "Log In" %>
-
+				
 					<small class="d-block mt-4 text-center"><a class="text-gray" href="#">Forgot your password?</a></small>
 				<%end%>
 				
