@@ -1,41 +1,18 @@
-<%= form_for :user, url: '/users' do |f| %>
-    <p>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-    </p>
-    <p>
-        <%= f.label :email %>
-        <%= f.text_field :email %>
-    </p>
-    <p>
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-    </p>
-    <p>
-        <%= f.label :verify_password %>    
-        <%= f.password_field :verify_password %> 
-    </p>
-    <p>
-        <%= f.label :Address %>
-    </p>
-        <p>
-            <%= f.label :street_address %>
-            <%= f.text_field :street_address %>
-        </p>
-        <p>
-            <%= f.label :city %>
-            <%= f.text_field :city %>
-            <%= f.label :state %>
-            <%= f.select :state, options_for_select(us_states),{} %>
+<%= simple_form_for :user, url: '/users' do |f| %>
+    <%= f.error_notification %>
 
-        </p>
-        <p>
-            <%= f.label :zip_code %>
-            <%= f.text_field :zip %>
-        </p>
-    <p>
-        <%= f.label :phone_number %>
-        <%= f.text_field :phone_number %>
-    </p>
+    <%= f.input :name %>
+    <%= f.input :email, input_html: { autocomplete: 'email' } %>
+    <%= f.input :password, input_html: { autocomplete: 'current-password' } %>
+    <%= f.input :verify_password %>
+
+    Address:
+        <%= f.input :street_address %>
+        <%= f.input :city %>       
+        <%= f.input :state, collection: us_states, prompt: :select%>
+        <%= f.input :zip %>
+
+        <%= f.input :phone_number %>
+       
 
 <%end%>
