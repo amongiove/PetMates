@@ -10,11 +10,9 @@ Rails.application.routes.draw do
   
   get '/users/(:id)', to: "users#edit"
 
-  # get '/login', to: "sessions#new"
   # delete '/logout', to: "sessions#destroy"
 
   resources :users
-  #user show
 
 end
 
