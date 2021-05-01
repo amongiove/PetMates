@@ -11,21 +11,20 @@
 		</div>
 	</div>
 	<div class="col-md-6 p-0 bg-white h-md-100 loginarea">
-		<div class="d-md-flex align-items-center h-md-100 p-5 justify-content-center">
-			<form class="border rounded p-5">
-				<h3 class="mb-4 text-center">Log In</h3>
-				<%= simple_form_for :user, method: :post, url: "/login" do |f| %>
+        <div class="d-md-flex align-items-center h-md-100 p-5 justify-content-center">
+			<div class="border rounded p-5">
+                <h3 class="mb-4 text-center">Log In</h3>
+                <%= simple_form_for(@user, url: '/login') do |f| %>
                     <%= f.input :email, placeholder: "E-mail", label: false %><br>
                     <%= f.input :password, placeholder: "Password", label: false %>
                                     
                     <br><%= f.button :submit, class: "text-white btn bg-blue btn-round btn-block shadow-sm", value: "Log In" %>
-				
-					<small class="d-block mt-4 text-center"><a class="text-gray" href="#">Forgot your password?</a></small>
-				<%end%>
-				
-			</form>
-		</div>
-	</div>
+                
+                    <small class="d-block mt-4 text-center"><a class="text-gray" href="#">Forgot your password?</a></small>
+                <%end%>
+			</div>       
+        </div>
+    </div>
 </div>
     
 

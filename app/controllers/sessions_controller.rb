@@ -6,11 +6,11 @@ class SessionsController < ApplicationController
 
     def create
         puts "SESSIONS CREATE"
-        user = User.find_by(name: params[:user][:name])
+        user = User.find_by(name: params[:user][:email])
         @user = user.try(:authenticate, params[:password])
         return redirect_to root_url unless @user
         session[:user_id] = user.id
-        redirect_to onboarding_path(@user)    
+        redirect_to @user    
     end
 
     # def destroy
