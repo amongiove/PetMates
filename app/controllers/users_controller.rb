@@ -31,10 +31,6 @@ class UsersController < ApplicationController
         @user = User.find_by(id: params[:id])
         @user.update(user_params)
         @user.save
-        puts "TYPE"
-        puts @user.type
-        puts "ONBOARDED"
-        puts @user.onboarded?
         redirect_to user_path@user
     end
 

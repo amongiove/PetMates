@@ -4,10 +4,10 @@
     <%= f.input :email, readonly: true %>
 
     <br>Address:
-        <%= f.input :street_address %>
-        <%= f.input :city %>       
-        <%= f.input :state, collection: us_states, prompt: :select%>
-        <%= f.input :zip %>
+        <%= f.input :street_address, input_html: { class: "form-control", required: true } %>
+        <%= f.input :city, input_html: { class: "form-control", required: true } %>       
+        <%= f.input :state, collection: us_states, prompt: :select, input_html: { class: "form-control", required: true }%>
+        <%= f.input :zip, input_html: { class: "form-control", required: true } %>
 
-    <%= f.input :phone_number %>
+    <%= f.input :phone_number, input_html: { class: "form-control", required: true } %>
         

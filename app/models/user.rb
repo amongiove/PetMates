@@ -9,6 +9,7 @@ class User < ApplicationRecord
     validates :type, presence: true
  
     def onboarded?
+        #split up based on user type
         if self.type == "Owner"
             if !self.street_address.empty? && !self.city.empty? && !self.zip.empty? && !self.phone_number.empty? && !self.home_access_info.empty?
                 return true
@@ -24,5 +25,4 @@ class User < ApplicationRecord
             end
         end
     end
-
 end

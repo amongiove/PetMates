@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   post '/signup', to: "users#create"
 
   post '/login', to: "sessions#create"
-  #TODO: confirm -- delete isn't being routed to
   get '/logout', to: "sessions#destroy"
   
   get '/users/(:id)', to: "users#edit" #user personal show page/onboarding
