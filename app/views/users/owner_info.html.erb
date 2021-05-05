@@ -2,7 +2,7 @@
     <div class="col-md-6 mx-auto">
         <h1 class="form-title"><%=@user.name.capitalize%>'s Owner Profile</h1>
 
-        <%= simple_form_for :user, url: users_path(@user), html: { method: "patch" } do |f| %>
+        <%= simple_form_for :user, url: user_path(@user), html: { method: "patch" } do |f| %>
 
             <%= render 'users/user_info', f: f %>   
             
