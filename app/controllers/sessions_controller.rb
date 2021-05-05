@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
     end
 
     def destroy
+        #TODO: add in prompt "are you sure" when click link
         session.delete :user_id
         redirect_to root_url
     end

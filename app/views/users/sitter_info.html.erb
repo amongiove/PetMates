@@ -3,7 +3,6 @@
         <h1 class="form-title"><%=@user.name.capitalize%>'s Sitter Profile</h1>
 
         <%= simple_form_for :user, url: user_path(@user), html: { method: "patch" } do |f| %>
-            <%=f.hidden_field :type, :value=>params["type"] %>
 
             <%= render "users/user_info", f: f %>
         
