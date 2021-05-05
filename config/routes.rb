@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   #TODO: confirm -- delete isn't being routed to
   get '/logout', to: "sessions#destroy"
   
-  get '/users/(:id)', to: "users#edit"
+  get '/users/(:id)', to: "users#edit" #user personal show page/onboarding
 
   
   resources :users
