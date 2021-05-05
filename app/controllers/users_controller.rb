@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     #     @user = User.find_by(id: params[:id])
     # end
 
-    def edit
+    def show
         @user = User.find_by(id: params[:id])
         render :owner_info if @user.type == "Owner"
         render :sitter_info if @user.type == "Sitter"
