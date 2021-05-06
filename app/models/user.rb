@@ -11,14 +11,14 @@ class User < ApplicationRecord
     def onboarded?
         #split up based on user type
         if self.type == "Owner"
-            if !self.street_address.empty? && !self.city.empty? && !self.zip.empty? && !self.phone_number.empty? && !self.home_access_info.empty?
+            if !self.street_address.blank? && !self.city.blank? && !self.zip.blank? && !self.phone_number.blank? && !self.home_access_info.blank?
                 return true
             else
                 return false
             end
         end
         if self.type == "Sitter"
-            if !self.street_address.empty? && !self.city.empty? && !self.zip.empty? && !self.phone_number.empty? && !self.bio.empty? && !self.rate.empty?
+            if !self.street_address.blank? && !self.city.blank? && !self.zip.blank? && !self.phone_number.blank? && !self.bio.blank? && !self.rate.blank?
                 return true
             else
                 return false

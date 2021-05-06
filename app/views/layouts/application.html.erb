@@ -26,14 +26,16 @@
         <li class="nav-item">
           <a class="nav-link" href=<%=user_path(User.find_by(id: session[:user_id]))%>>Profile</a>
         </li>
-        <%if User.find_by(id: session[:user_id]).type == "Owner"%>
+        <%if User.find_by(id: session[:user_id]).onboarded? %>
+          <%if User.find_by(id: session[:user_id]).type == "Owner"%>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Find Sitters <span class="sr-only"></span></a>
+            </li>
+          <%end%>
           <li class="nav-item active">
-            <a class="nav-link" href="#">Find Sitters <span class="sr-only"></span></a>
+            <a class="nav-link" href="#">Jobs <span class="sr-only"></span></a>
           </li>
         <%end%>
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Jobs <span class="sr-only"></span></a>
-        </li>
       </ul>
     </div>
     <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
