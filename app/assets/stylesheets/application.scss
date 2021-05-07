@@ -19,9 +19,35 @@
  @media (min-width: 768px) {
     .h-md-100 {height: 100vh;}
   }
-  .btn-round { border-radius: 30px;}
-  .bg-blue, .user_type_selection {background: rgb(30, 69, 109);}
-  .select_sitter {float: left; margin-left: 150px;}
-  .select_owner {float: right; margin-right: 150px;}
-  .form-title {text-align: center; color: rgb(30, 69, 109);}
-  
+.btn-round { border-radius: 30px;}
+
+.bg-blue, .user_type_selection {background: rgb(30, 69, 109);}
+
+.select_sitter {float: left; margin-left: 150px;}
+.select_owner {float: right; margin-right: 150px;}
+
+.form-title {text-align: center; color: rgb(30, 69, 109);}
+
+.mb-30 {
+    margin-bottom: 30px
+}
+
+.mt-100 {
+    margin-top: 100px
+}
+
+.card .card-body {
+    padding: 1.25rem 1.75rem
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem
+}
+
+.card .card-description {
+    margin-bottom: .875rem;
+    font-weight: 400;
+    color: #76838f
+}
+

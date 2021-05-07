@@ -1,0 +1,17 @@
+<div class="row d-flex justify-content-center mt-100">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h1 class="form-title">Select an Option</h1>
+                <hr class="mb-30">
+                <%= simple_form_for :user, url: user_path(@user), html: { method: "patch" } do |f| %>
+
+                    <%= f.input :type, as: :radio_buttons, collection: user_types, wrapper: :horizontal_collection_inline, label:false, input_html: { class: "radio", required: true } %>
+                
+            
+                    <br><%= f.button :submit, class: "btn-primary bg-blue", value: "Save"%>
+                <% end %>
+            </div>
+        </div>
+    </div>  
+</div>

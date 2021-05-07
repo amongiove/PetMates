@@ -1,6 +1,7 @@
 <div class="container">
     <div class="col-md-6 mx-auto">
         <h1 class="form-title"><%=@user.name.capitalize%>'s Sitter Profile</h1>
+        <hr class="mb-30">
 
         <%= simple_form_for :user, url: user_path(@user), html: { method: "patch" } do |f| %>
 

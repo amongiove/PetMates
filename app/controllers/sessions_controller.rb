@@ -11,23 +11,14 @@ class SessionsController < ApplicationController
 
     def googleAuth
         #login and signup -- need to find a way to allow sitter/owner select
-        # @user = User.find_or_create_by(email: auth["info"]["email"]) do |user|
-        #     user.name= auth["info"]["first_name"]
-        #     user.password= SecureRandom.hex(10)
-        # end
-        # if @user.save
-        #     session[:user_id] = @user.id
-        #     redirect_to user_path(@user)
-        # else
-        #     redirect_to '/'
-        # end
-
-        @user = User.find_by(email: auth["info"]["email"]) 
-        if @user
+        @user = User.find_or_create_by(email: auth["info"]["email"]) do |user|
+            user.name= auth["info"]["first_name"]
+            user.password= SecureRandom.hex(10)
+        end
+        if @user.save
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
-            #flash message - please sign up as a sitter or owner 
             redirect_to '/'
         end
     end

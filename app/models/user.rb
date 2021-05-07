@@ -6,7 +6,7 @@ class User < ApplicationRecord
     #before_create :set_user_type
     validates :name, presence: true
     validates :email, presence: true
-    validates :type, presence: true
+    # validates :type, presence: true
  
     def onboarded?
         #split up based on user type

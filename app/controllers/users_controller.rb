@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
     def edit
         @user = User.find_by(id: params[:id])
+        render :type_selection if @user.type.blank?
         render :owner_info if @user.type == "Owner"
         render :sitter_info if @user.type == "Sitter"
     end

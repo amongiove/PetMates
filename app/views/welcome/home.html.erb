@@ -20,10 +20,8 @@
                     <%= f.input :password, placeholder: "Password", label: false %>
                                     
                     <br><%= f.button :submit, class: "text-white btn bg-blue btn-round btn-block shadow-sm", value: "Log In" %>
-
-					<br><%= link_to "Log In with Google", '/auth/google_oauth2' %>
-                
-                    <small class="d-block mt-4 text-center"><a class="text-gray" href="#">Forgot your password?</a></small>
+					<hr class="mb-30">
+					<%= link_to "Log In with Google", '/auth/google_oauth2' %>
                 <%end%>
 			</div>       
         </div>
