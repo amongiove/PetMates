@@ -6,10 +6,8 @@ class User < ApplicationRecord
     #before_create :set_user_type
     validates :name, presence: true
     validates :email, presence: true
-    # validates :type, presence: true
  
     def onboarded?
-        #split up based on user type
         if self.type == "Owner"
             if !self.street_address.blank? && !self.city.blank? && !self.zip.blank? && !self.phone_number.blank? && !self.home_access_info.blank?
                 return true

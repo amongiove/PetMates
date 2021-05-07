@@ -13,9 +13,12 @@ Rails.application.routes.draw do
   
   get '/users/(:id)', to: "users#edit" #user personal show page/onboarding
 
- 
   
   resources :users
+
+  resources :owners, :controller => 'users', only: [:show] do
+    resources :pets
+  end
 
 end
 
