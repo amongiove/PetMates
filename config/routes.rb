@@ -8,9 +8,12 @@ Rails.application.routes.draw do
 
   post '/login', to: "sessions#create"
   get '/logout', to: "sessions#destroy"
+
+  get 'auth/google_oauth2/callback', to: 'sessions#googleAuth'
   
   get '/users/(:id)', to: "users#edit" #user personal show page/onboarding
 
+ 
   
   resources :users
 
