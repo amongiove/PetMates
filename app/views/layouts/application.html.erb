@@ -29,6 +29,9 @@
         <%if User.find_by(id: session[:user_id]).onboarded? %>
           <%if User.find_by(id: session[:user_id]).type == "Owner"%>
             <li class="nav-item active">
+              <a class="nav-link" href="#">Pets<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item active">
               <a class="nav-link" href="#">Find Sitters <span class="sr-only"></span></a>
             </li>
           <%end%>
