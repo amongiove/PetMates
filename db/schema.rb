@@ -78,11 +78,13 @@ ActiveRecord::Schema.define(version: 2021_04_28_180844) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "jobs", "owners"
-  add_foreign_key "jobs", "sitters"
   add_foreign_key "messages", "jobs"
   add_foreign_key "messages", "users"
-  add_foreign_key "pets", "owners"
-  add_foreign_key "reviews", "owners"
-  add_foreign_key "reviews", "sitters"
+  add_foreign_key "pets", "users", column: "owner_id", primary_key: "id"
+  add_foreign_key "jobs", "users", column: "owner_id", primary_key: "id"
+  add_foreign_key "jobs", "users", column: "sitter_id", primary_key: "id"
+  add_foreign_key "reviews", "users", column: "owner_id", primary_key: "id"
+  add_foreign_key "reviews", "users", column: "sitter_id", primary_key: "id"
+
+
 end

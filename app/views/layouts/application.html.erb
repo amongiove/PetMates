@@ -14,7 +14,7 @@
   </head>
 
   <body>
-<% if session[:user_id] %>
+<% if User.find_by(id: session[:user_id]) %>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/"><img src="https://banner2.cleanpng.com/20180310/kde/kisspng-logo-dog-pet-cat-cute-cat-5aa41e0b992c40.6510594315207050356274.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top">PetMates</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

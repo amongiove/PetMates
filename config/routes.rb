@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   
   resources :users
 
-  resources :owners, :controller => 'users', only: [:show] do
+  resources :owners, :controller => 'users', type: 'Owner', only: [:show] do
     resources :pets
   end
 
