@@ -2,16 +2,12 @@
     <h1 class="form-title">New Pet Profile</h1>
 
     <%= simple_form_for :pet, url: owner_pets_path, html: { method: "post"} do |f| %>
-        <%= f.hidden_field :owner_id, :value => @owner.id %>
-        <%= f.input :name, input_html: { class: "form-control", required: true } %>
-        <%= f.input :pet_type, input_html: { class: "form-control", required: true } %>
-        <%= f.input :breed, input_html: { class: "form-control", required: true } %>
-        <%= f.input :color, input_html: { class: "form-control", required: true } %><br>
-        <%= f.input :sex, as: :radio_buttons, collection: [['Male', 'Male'] ,['Female', 'Female']], wrapper: :horizontal_collection, input_html: { class: "radio", required: true } %> 
-        <%= f.input :age, input_html: { class: "form-control", required: true } %>
-        <%= f.input :care_instructions, as: :text, input_html: { class: "form-control", required: true } %>
 
-        <br><%= f.button :submit, class: "text-white btn bg-blue btn-round btn-block shadow-sm", value: "Create Pet" %>
+        <%= f.input :name, input_html: { class: "form-control", required: true } %>
+
+         <%= render 'pets/pet_info', f: f %> 
+
+        <br><%= f.button :submit, class: "text-white btn bg-blue btn-block shadow-sm", value: "Create Pet" %>
 
     <%end%>
             

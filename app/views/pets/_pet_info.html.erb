@@ -1,0 +1,7 @@
+<%= f.hidden_field :owner_id, :value => @owner.id %>
+<%= f.input :pet_type, input_html: { class: "form-control", required: true } %>
+<%= f.input :breed, input_html: { class: "form-control", required: true } %>
+<%= f.input :color, input_html: { class: "form-control", required: true } %><br>
+<%= f.input :sex, as: :radio_buttons, collection: [['Male', 'Male'] ,['Female', 'Female']], wrapper: :horizontal_collection, input_html: { class: "radio", required: true } %> 
+<%= f.input :age, input_html: { class: "form-control", required: true } %>
+<%= f.input :care_instructions, as: :text, input_html: { class: "form-control", required: true } %>
