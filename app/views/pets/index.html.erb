@@ -1,3 +1,19 @@
-your pets (index)
+<div class="row d-flex justify-content-center mt-100">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body text-center">
+                <h1 class="form-title">Your Pets</h1>
+                <hr class="mb-30">
+                <%@pets.each do |pet|%>
+                    <ul class="list-inline"> 
+                        <li class="list-inline-item"><%=link_to pet.name.capitalize, owner_pet_path(@owner, pet)%></li>
+                    </ul>
+                <%end%>
+                <hr class="mb-30">
+                <a class="text-white btn bg-blue btn-round btn-block shadow-sm" href=<%=new_owner_pet_path%>>Add Pet</a>
+            </div>
+        </div>
+    </div>  
+</div>
 
-<a class="text-white btn bg-blue btn-round btn-block shadow-sm" href=<%=new_owner_pet_path%>>New Pet</a>
+

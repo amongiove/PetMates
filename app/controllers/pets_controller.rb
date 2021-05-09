@@ -2,6 +2,8 @@ class PetsController < ApplicationController
 
     #need this?
     def index
+        @owner = User.find_by(id: session[:user_id])
+        @pets = @owner.pets
     end
 
     def new
@@ -9,12 +11,11 @@ class PetsController < ApplicationController
     end
 
     def create
-        puts "CREATE"
         @owner = User.find_by(id: session[:user_id])
         @pet = Pet.new(pet_params)
         if @pet.save
             #redirect broken
-            redirect_to owner_pet_path(@owner,@pet)
+            redirect_to owner_pet_path(@owner, @pet)
         else
             #TODO: fix flash messages so they are actual error messages
             render :new
@@ -25,7 +26,7 @@ class PetsController < ApplicationController
         @pet = Pet.find_by(id: params[:id])
     end
 
-    
+
     private 
   
     def pet_params 
