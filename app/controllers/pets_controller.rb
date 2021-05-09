@@ -33,11 +33,17 @@ class PetsController < ApplicationController
     end
 
     def update
-        @owner = User.find_by(id: session[:user_id])
         @pet = Pet.find_by(id: params[:id])
         @pet.update(pet_params)
         @pet.save
         redirect_to owner_pet_path(@owner, @pet)
+    end
+
+    def destroy
+        @owner = User.find_by(id: session[:user_id])
+        @pet = Pet.find_by(id: params[:id])
+        @pet.destroy
+        redirect_to owner_pets_path(@owner)
     end
 
 
