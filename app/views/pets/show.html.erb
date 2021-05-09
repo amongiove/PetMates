@@ -10,7 +10,7 @@
 
         <a class="text-white btn bg-blue btn-block shadow-sm" href=<%=edit_owner_pet_path(@owner, @pet)%>>Edit Pet Info</a><br>
 
-        <br><%= f.button :submit, class: "text-white btn bg-blue btn-block shadow-sm", value: "Delete Pet", data: {confirm: "Are you sure?"} %></br>
+        <br><%= f.button :submit, class: "text-white btn bg-blue btn-block shadow-sm", value: "Delete Pet", onclick: "return confirm('Are you sure?')" %></br>
     <%end%>
     
       
