@@ -1,6 +1,7 @@
 class PetsController < ApplicationController 
 
-    #need this?
+    #TODO: refactor repeated @owner= and @pet= code
+
     def index
         @owner = User.find_by(id: session[:user_id])
         @pets = @owner.pets
@@ -14,7 +15,6 @@ class PetsController < ApplicationController
         @owner = User.find_by(id: session[:user_id])
         @pet = Pet.new(pet_params)
         if @pet.save
-            #redirect broken
             redirect_to owner_pet_path(@owner, @pet)
         else
             #TODO: fix flash messages so they are actual error messages
@@ -33,6 +33,7 @@ class PetsController < ApplicationController
     end
 
     def update
+        @owner = User.find_by(id: session[:user_id])
         @pet = Pet.find_by(id: params[:id])
         @pet.update(pet_params)
         @pet.save

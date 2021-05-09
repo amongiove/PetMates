@@ -17,10 +17,6 @@ class UsersController < ApplicationController
         end
     end
 
-    #  def show
-    #     @user = User.find_by(id: params[:id])
-    # end
-
     def edit
         @user = User.find_by(id: params[:id])
         render :type_selection if @user.type.blank?
@@ -34,6 +30,18 @@ class UsersController < ApplicationController
         @user.save
         redirect_to user_path(@user)
     end
+
+    def index #sitters
+        @sitters = Sitter.all
+        render :search_sitters
+    end
+
+    def sitter_show #sitters
+    end
+
+    def show #users
+    end
+
 
     private 
   

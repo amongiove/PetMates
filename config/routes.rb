@@ -19,6 +19,11 @@ Rails.application.routes.draw do
     resources :pets
   end
 
+  resources :sitters, :controller => 'users', type: 'Sitter', only: [:index]
+  get '/sitters/(:id)', to: "users#sitter_show"
+
+
+
 end
 
 

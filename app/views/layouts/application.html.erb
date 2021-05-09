@@ -32,7 +32,7 @@
               <a class="nav-link" href=<%=owner_pets_path(User.find_by(id: session[:user_id]).id)%>>Pets<span class="sr-only"></span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">Find Sitters <span class="sr-only"></span></a>
+              <a class="nav-link" href="/sitters">Find Sitters <span class="sr-only"></span></a>
             </li>
           <%end%>
           <li class="nav-item active">
