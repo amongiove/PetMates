@@ -1,1 +1,21 @@
-search sitters
+<div class="container-fluid">
+    <h1 class="form-title">Pet Sitters</h1>
+    #TODO: seach bar for city
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <%@sitters.each do |sitter|%>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="..." class="card-img-top" alt="..."> #TODO:sitter image or generic?
+                        <h5 class="card-title"><%=sitter.name.capitalize%></h5>
+                        <p class="card-text"><%=sitter.city.capitalize%>, <%=sitter.state%></p>
+                        <p class="card-text"><%=sitter.rate%> #TODO: need to make rate input uniform</p> 
+                        <p class="card-text">rating as stars(reviews count)</p>
+                        <a href="/sitters/<%=sitter.id%>" class="btn btn-primary bg-blue">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        <%end%>
+    </div>
+</div>
