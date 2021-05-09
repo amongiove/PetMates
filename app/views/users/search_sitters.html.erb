@@ -1,7 +1,15 @@
 <div class="container-fluid">
     <h1 class="form-title">Pet Sitters</h1>
-    #TODO: seach bar for city
-
+    <div class="row">
+        <div class="col-xs-12 col-sm-8">
+            <%= simple_form_for :search, url: "/sitters", method: "GET", wrapper: :inline_form, html: { class: 'form-inline' } do |f| %>
+                Search by City:
+                <%= f.input_field :city, label: false, input_html: {value: ""} %>   
+                <%= f.submit "Search", class: "btn-sm btn-primary bg-blue" %>
+            <% end %>
+        </div>
+    </div>
+    <hr class="mb-30">
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <%@sitters.each do |sitter|%>
             <div class="col">
