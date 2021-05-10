@@ -1,13 +1,37 @@
-<div class="container">
-    <div class="col-md-6 mx-auto">
-        <h1 class="form-title"><%=@sitter.name.capitalize%></h1>
-        <h5 class="form-title"><%=@sitter.city.capitalize%>, <%=@sitter.state%> --- <%=@sitter.rate%></h5>
-        <hr class="mb-30">
-        <p>Bio: <%=@sitter.bio%></p>
-        <p>Rating: (sitter rating)</p> 
-        <p>Reviews: (list reviews)</p>
-        
-
-       
-    </div>
+<div class="row d-flex justify-content-center mt-100">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="form-title"><%=@sitter.name.capitalize%></h1>
+                <h5 class="form-title text-muted"><%=@sitter.city.capitalize%>, <%=@sitter.state%>  |  <%=@sitter.rate%></h5>
+                <hr class="mb-30">
+                <h6 class="card-title">Meet <%=@sitter.name.capitalize%>:</h6>
+                <p> <%=@sitter.bio%></p>
+                <hr class="mb-30">
+                #TODO: add stars
+                <%if @rating != 0 %>
+                    <h6 class="card-title">Average rating:</h6>
+                    <p><%=@rating%>/5</p> 
+                <%else%>
+                    <h6 class="card-title">No Ratings</h6>
+                <% end%> 
+                <hr class="mb-30">
+                <%if !@sitter.reviews.empty?%>
+                    <h6 class="card-title">What other have to say:</h6>
+                        <%@sitter.reviews.each do |review|%>
+                            <ul> 
+                                <li><%=Owner.find_by(id: review.owner_id).name.capitalize%> said: <%=review.review%></li>
+                            </ul>
+                        <%end%>
+                <%else%>
+                    <h6 class="card-title">No Reviews</h6>
+                <%end%>
+                <hr class="mb-30">
+                <a class="text-white btn bg-blue btn-block shadow-sm right-align" href="#">Request Services</a>
+            </div>
+        </div>
+    </div>  
 </div>
+
+
+               
