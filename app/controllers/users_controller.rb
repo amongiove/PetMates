@@ -44,6 +44,7 @@ class UsersController < ApplicationController
     end
 
     def sitter_show #sitters_show
+        @sitter = Sitter.find_by(id: params[:id])
     end
 
     def show #owners_show
