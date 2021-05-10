@@ -2,11 +2,11 @@
     <h1 class="form-title">Pet Sitters</h1>
     <div class="row">
         <div class="col-xs-12 col-sm-8">
-            <%= simple_form_for :search, url: "/sitters", method: "GET", wrapper: :inline_form, html: { class: 'form-inline' } do |f| %>
-                Search by City:
-                <%= f.input_field :city, label: false, input_html: {value: ""} %>   
-                <%= f.submit "Search", class: "btn-sm btn-primary bg-blue" %>
-            <% end %>
+            <%= form_with url: '/sitters', method: :get, local: true do |f| %>
+                <%=f.label :search, "Search by City:"%>
+                <%=f.text_field :search, id: :search%>
+                <%=f.submit "Search", name: nil %>
+            <%end%>
         </div>
     </div>
     <hr class="mb-30">

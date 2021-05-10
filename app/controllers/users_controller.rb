@@ -31,21 +31,25 @@ class UsersController < ApplicationController
         redirect_to user_path(@user)
     end
 
-    def index #sitters
+      def search_sitters
         @sitters = Sitter.all
-        render :search_sitters
+        if params[:search] && !params[:search].empty?
+            @sitters = Sitter.search(params[:search].downcase)
+             #TODO: add flash messages if @sitters.empty? 
+        end
+       
     end
 
-    def sitter_show #sitters
+    def sitter_show #sitters_show
     end
 
-    def show #users
+    def show #owners_show
     end
 
 
     private 
   
     def user_params 
-      params.require(:user).permit(:name, :password, :email, :type, :street_address, :city, :state, :zip, :phone_number, :home_access_info, :bio, :rate)
+      params.require(:user).permit(:name, :password, :email, :type, :street_address, :city, :state, :zip, :phone_number, :home_access_info, :bio, :rate, :search)
     end
 end
