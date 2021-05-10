@@ -12,8 +12,8 @@ class UsersController < ApplicationController
             
         else
             #TODO: fix flash messages so they are actual error messages
-            flash[:message] = @user.errors.full_messages.compact
-            render :new
+            render :new, flash.now[:notice] = @user.errors.full_messages.compact
+
         end
     end
 
@@ -28,15 +28,18 @@ class UsersController < ApplicationController
         @user = User.find_by(id: params[:id])
         @user.update(user_params)
         @user.save
-        redirect_to user_path(@user)
+        redirect_to user_path(@user), notice: "Profile Updated."
     end
 
-      def search_sitters
-        @sitters = Sitter.all
-        if params[:search] && !params[:search].empty?
-            @sitters = Sitter.search(params[:search].downcase)
-             #TODO: add flash messages if @sitters.empty? 
+    def search_sitters
+    @sitters = Sitter.all
+    if params[:search] && !params[:search].empty?
+        @sitters = Sitter.search(params[:search].downcase)
+        if @sitters.empty?
+            @sitters = Sitter.all
+            flash.now[:notice] = "Sorry. We could not find any Sitters located in #{params[:search].capitalize}."
         end
+    end
        
     end
 

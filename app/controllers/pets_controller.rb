@@ -17,7 +17,7 @@ class PetsController < ApplicationController
         if @pet.save
             redirect_to owner_pet_path(@owner, @pet)
         else
-            #TODO: fix flash messages so they are actual error messages
+            flash.now[:notice] = "Please input valid information." #TODO: make this more specific
             render :new
         end
     end
