@@ -6,6 +6,7 @@ class User < ApplicationRecord
     #before_create :set_user_type
     validates :name, presence: true
     validates :email, presence: true
+    has_one_attached :image
  
     def onboarded?
         if self.type == "Owner"

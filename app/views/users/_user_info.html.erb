@@ -1,7 +1,16 @@
     <%= f.error_notification %>
 
     <%= f.input :name, readonly: true %>
-    <%= f.input :email, readonly: true %>
+    <%= f.input :email, readonly: true %><br>
+
+    Change profile picture:<br>
+    <%if @user.image.exists?%>
+        <%= image_tag @user.image, size: "100x100"%>
+    <%else%>
+        <%= image_tag ("default_user_image.png"), size: "100x100" %>
+    <%end%><br>
+    <%= f.file_field :image %><br>
+
 
     <br>Address:
         <%= f.input :street_address, input_html: { class: "form-control", required: true } %>
