@@ -7,7 +7,7 @@
 <hr class="mb-30">
 
 
-<h5 class="card-title">Do you accept this job?</h5>
+<h5 class="card-title">Would you like to accept this job?</h5>
 <%= simple_form_for :job, url: job_path(@job), html: { method: "patch"} do |f| %>
     <%= f.input :acceptance_status, as: :radio_buttons, collection: [['Accept', 'Accepted'] ,['Decline', 'Declined']], :label => "", wrapper: :vertical_collection_inline, input_html: { class: "radio", required: true } %>
     <br><%= f.button :submit, class: "text-white btn bg-blue btn-block shadow-sm", value: "Update Status" %>

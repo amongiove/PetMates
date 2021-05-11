@@ -5,6 +5,8 @@
                 <h1 class="form-title">Job Specifics</h1>
                 <% if @job.accepted? == true %>
                     <%= render 'jobs/job_info' %>
+                    <hr class="mb-30">
+                    <%= render '/jobs/job_completion' %>
                 <%else%>
                     <%= render 'jobs/job_acceptance' %>
                 <%end%>
