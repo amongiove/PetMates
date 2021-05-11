@@ -23,7 +23,8 @@ class PetsController < ApplicationController
     end
 
     def show
-        @owner = User.find_by(id: session[:user_id])
+        @user = User.find_by(id: session[:user_id])
+        @owner = User.find_by(id: params[:owner_id])
         @pet = Pet.find_by(id: params[:id])
     end
 

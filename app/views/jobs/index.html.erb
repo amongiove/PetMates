@@ -13,16 +13,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
                         <%@jobs.each do |job|%>
+                        <tr>
                         <td><%=link_to job.datetime, job_path(job)%></td>
                         <td><%=job.acceptance_status.capitalize%></td>
                         <td><%=job.completed?%></td>
-                        <%end%>
                         </tr>
+                        <%end%>
                     </tbody>
                     </table>
-                <a class="text-white btn bg-blue btn-block shadow-sm" href="#">some button?</a>
             </div>
         </div>
     </div>  

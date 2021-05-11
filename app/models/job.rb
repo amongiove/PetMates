@@ -5,7 +5,7 @@ class Job < ApplicationRecord
   after_initialize :set_defaults, unless: :persisted?
 
   def set_defaults
-    self.acceptance_status = "pending" if self.acceptance_status.blank?
+    self.acceptance_status = "Pending" if self.acceptance_status.blank?
     self.completion_status = false if self.completion_status.blank?
   end
 
@@ -23,4 +23,8 @@ class Job < ApplicationRecord
     end
   end
 
+  def accepted?
+    return nil unless self.acceptance_status == "Accepted"
+  end
+     
 end

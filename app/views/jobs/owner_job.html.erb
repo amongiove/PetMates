@@ -1,0 +1,24 @@
+<div class="row d-flex justify-content-center mt-50 mb-50">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="form-title">Job Specifics</h1>
+                <h5 class="form-title text-muted"><%=@job.datetime%> | <%=@job.completed?%></h5>
+                <h6 class="form-title text-muted">Sitter: <%=@sitter.name.capitalize%> | Owner: <%=@owner.name.capitalize%> </h6>
+                <hr class="mb-30">
+                <% if @job.accepted? %>
+                    <%= render 'jobs/job_info' %>
+                <%else%>
+                    <h5 class="form-title">This job is pending Sitter acceptance.</h5>
+                    <h6 class="form-title text-muted">Please check back later</h6>
+                <%end%>
+                <%if @job.completion_status == true %>
+                    <a class="text-white btn bg-blue btn-block shadow-sm right-align" href="#">Review <%=@sitter.name.capitalize%></a>
+                <%end%>
+            </div>
+        </div>
+    </div>  
+</div>
+
+
+               

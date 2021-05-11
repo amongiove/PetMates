@@ -14,11 +14,10 @@
             <%= render 'pets/pet_info', f: f %> <br><br>
         </fieldset>
 
-        <a class="text-white btn bg-blue btn-block shadow-sm" href=<%=edit_owner_pet_path(@owner, @pet)%>>Edit Pet Info</a><br>
+        <%if @user == @owner %>
+            <a class="text-white btn bg-blue btn-block shadow-sm" href=<%=edit_owner_pet_path(@owner, @pet)%>>Edit Pet Info</a><br>
 
-        <br><%= f.button :submit, class: "text-white btn bg-blue btn-block shadow-sm", value: "Delete Pet", onclick:"return confirm('Are you sure?')" %></br>
-    <%end%>
-    
-      
-
+            <br><%= f.button :submit, class: "text-white btn bg-blue btn-block shadow-sm", value: "Delete Pet", onclick:"return confirm('Are you sure?')" %></br>
+        <%end%>
+    <%end%>   
 </div>

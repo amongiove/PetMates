@@ -1,0 +1,42 @@
+<div class="row d-flex justify-content-center mt-50 mb-50">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="form-title"><%=@owner.name.capitalize%></h1>
+                <section class="profile-image">
+                    <%if @owner.image.attached?%>
+                        <%= image_tag @owner.image, size: "100x100" %>
+                    <%else%>
+                        <%= image_tag ("default_user_image.png"), size: "100x100" %>
+                    <%end%>
+                </section><br>
+                <hr class="mb-30">
+
+                <h5 class="card-title">Pets</h5>
+                <%@owner.pets.each do |pet|%>
+                    <ul class="list-inline"> 
+                        <li class="list-inline-item"><%=link_to pet.name.capitalize, owner_pet_path(@owner, pet)%></li>
+                    </ul>
+                <%end%>
+                <hr class="mb-30">
+
+                <h5 class="card-title">Address</h5>            
+                <p><%=@owner.street_address%></p>
+                <p><%=@owner.city %>, <%=@owner.state%></p>
+                <p><%=@owner.zip%></p>
+                <hr class="mb-30">
+
+                <h5 class="card-title">Contact Information</h5>
+                <p>Phone Number: <%=@owner.phone_number%></p>
+                <p>Email: <%=@owner.email%></p>
+                <hr class="mb-30">
+                
+                <h5 class="card-title">Home Access Information</h5>
+                <p><%=@owner.home_access_info%></p>                
+            </div>
+        </div>
+    </div>  
+</div>
+
+
+               

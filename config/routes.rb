@@ -15,14 +15,14 @@ Rails.application.routes.draw do
 
   resources :users
 
-  # get '/owners/(:id)', to: "users#owner_show"
-  resources :owners, :controller => 'users', type: 'Owner', only: [:show] do
+  get '/owners/(:id)', to: "users#owner_show"
+  resources :owners, :controller => 'users', type: 'Owner', only: [] do
     resources :pets
   end
 
   get '/sitters', to: "users#search_sitters"
   get '/sitters/(:id)', to: "users#sitter_show"
-  
+
   resources :sitters, :controller => 'users', type: 'Sitter', only:[] do
     resources :jobs, only: [:new]
   end

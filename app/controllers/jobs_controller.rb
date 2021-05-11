@@ -15,7 +15,7 @@ class JobsController <ApplicationController
     def create
         @job = Job.new(job_params)
         if @job.save
-            redirect_to job_path(@job)
+            redirect_to jobs_path
         else
             flash.now[:notice] = "Unable to complete request." #TODO: make this more specific
             render :new
@@ -23,7 +23,13 @@ class JobsController <ApplicationController
     end
 
     def show
+        @user = User.find_by(id: session[:user_id])
         @job = Job.find_by(id: params[:id])
+        @sitter = Sitter.find_by(id: @job.sitter_id)
+        @owner = Owner.find_by(id: @job.owner_id)
+
+        render :owner_job if @user == @owner
+        render :sitter_job if @user == @sitter
     end
 
     private

@@ -1,3 +1,6 @@
-
-<%=f.input :date_time, :label => "Date and time of requested service", as: :datetime, html5: true, input_html: { class: "form-control", required: true }%><br>
-<%=f.input :specifics, as: :text, :label => "Tell me more about the services you would like.", :placeholder => "Who are the pets I will be taking care of? What would you like done? etc.", :input_html => { :rows => 5, class: "form-control", required: true}%>
+<h5 class="card-title">Owner Specifications:</h5>
+<p><%=@job.specifics%></p>
+<h5 class="card-title">Conversation:</h5>
+<p>form for new messages</p>
+<p>Messages listed below</p>
+<hr class="mb-30">
