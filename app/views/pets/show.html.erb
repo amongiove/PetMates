@@ -2,6 +2,12 @@
     <h1 class="form-title"><%=@pet.name.capitalize%>'s Profile</h1>
     
     <%= simple_form_for :pet, url: owner_pet_path(@owner, @pet), html: { method: "delete"} do |f| %>
+        <%if @pet.image.attached?%>
+            <%= image_tag @pet.image, size: "100x100"%>
+        <%else%>
+            <%= image_tag ("default_pet_image.jpg"), size: "100x100" %>
+        <%end%><br><br>
+        
         <fieldset disabled="disabled">
             <%= f.input :name, readonly: true%>
 

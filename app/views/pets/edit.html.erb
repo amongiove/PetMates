@@ -3,6 +3,14 @@
 
     <%= simple_form_for :pet, url: owner_pet_path(@owner, @pet), html: { method: "patch"} do |f| %>
 
+        <%if @pet.image.attached?%>
+            <%= image_tag @pet.image, size: "100x100"%>
+        <%else%>
+            <%= image_tag ("default_pet_image.jpg"), size: "100x100" %>
+        <%end%><br><br>
+        <p>Upload new picture</p> 
+        <%= f.file_field :image %><br><br>
+
         <%= f.input :name, readonly: true %>
 
          <%= render 'pets/pet_info', f: f %> 
