@@ -2,18 +2,16 @@
     <div class="col-md-6">
         <div class="card">
             <div class="card-body text-center">
-                <h1 class="form-title">Your Pets</h1>
+                <h1 class="form-title">Your Jobs</h1>
                 <hr class="mb-30">
-                <%@pets.each do |pet|%>
+                <%@jobs.each do |job|%>
                     <ul class="list-inline"> 
-                        <li class="list-inline-item"><%=link_to pet.name.capitalize, owner_pet_path(@owner, pet)%></li>
+                        <li class="list-inline-item"><%=link_to job.date (job.time), job_path(job)%></li>
                     </ul>
                 <%end%>
                 <hr class="mb-30">
-                <a class="text-white btn bg-blue btn-block shadow-sm" href=<%=new_owner_pet_path%>>Add Pet</a>
+                <a class="text-white btn bg-blue btn-block shadow-sm" href="#">some button?</a>
             </div>
         </div>
     </div>  
 </div>
-
-

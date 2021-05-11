@@ -13,7 +13,6 @@
         <div class="d-md-flex align-items-center h-md-100 p-5 justify-content-center">
 			<div class="border rounded p-5">
                 <h3 class="mb-4 text-center">Log In</h3>
-				<!---#TODO: add error messages--->
                 <%= simple_form_for(@user, url: '/login') do |f| %>
                     <%= f.input :email, placeholder: "E-mail", label: false %><br>
                     <%= f.input :password, placeholder: "Password", label: false %>

@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   # resources :sitters, :controller => 'users', type: 'Sitter', only: [:index]
   get '/sitters', to: "users#search_sitters"
   get '/sitters/(:id)', to: "users#sitter_show"
+
+  resources :jobs 
   
 
 
