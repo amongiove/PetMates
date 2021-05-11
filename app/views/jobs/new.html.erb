@@ -1,1 +1,12 @@
-jobs#new
+<div class="col-md-6 mx-auto">
+    <h1 class="form-title">Request Services</h1>
+    <%= simple_form_for :job, url: jobs_path, html: { method: "post"} do |f| %>
+
+            <%= render 'jobs/job_info', f: f %> 
+
+            #TODO: add pets column for owner to select pets?
+
+            <br><%= f.button :submit, class: "text-white btn bg-blue btn-block shadow-sm", value: "Send Request" %>
+
+        <%end%>
+</div>

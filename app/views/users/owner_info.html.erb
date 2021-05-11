@@ -7,7 +7,7 @@
 
             <%= render 'users/user_info', f: f %>   
             
-            <%= f.input :home_access_info, as: :text, input_html: { class: "form-control", required: true } %>
+            <%= f.input :home_access_info, as: :text, :placeholder => "Sitters will be able to view this once a job has been scheudled.", input_html: { class: "form-control", required: true } %>
             <br><%= f.button :submit, class: "btn-primary bg-blue", value: "Update Profile"%><br><br>
         <% end %>
     </div>

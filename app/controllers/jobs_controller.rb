@@ -6,6 +6,7 @@ class JobsController <ApplicationController
     end
 
     def new
+        @user
     end
 
     def create
