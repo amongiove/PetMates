@@ -8,7 +8,6 @@ class JobsController <ApplicationController
     def new
         puts "NEW JOB"
         puts params
-        # @sitter = Sitter.find_by(id: params[:id])
         @user = User.find_by(id: session[:user_id])
         if @user.type != "Owner"
             redirect_to user_path(@user), notice: "You must be an Owner to do this."
@@ -18,9 +17,17 @@ class JobsController <ApplicationController
     def create
         puts "CREATE"
         puts params
+        @job = Job.new(job_params)
+        if @job.save
+            redirect_to job_path(@job)
+        else
+            flash.now[:notice] = "Unable to complete request." #TODO: make this more specific
+            render :new
+        end
     end
 
     def show
+        @job = Job.find_by(id: params[:id])
     end
 
     private
