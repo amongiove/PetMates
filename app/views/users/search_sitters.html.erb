@@ -15,7 +15,13 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <img src="..." class="card-img-top" alt="..."> #TODO:sitter image or generic?
+                        <section class="profile-image">
+                            <%if sitter.image.attached?%>
+                                <%= image_tag sitter.image, size: "100x100", style: ("float: right")%>
+                            <%else%>
+                                <%= image_tag ("default_user_image.png"), size: "100x100", style: ("float: right") %>
+                            <%end%>
+                        </section>
                         <h5 class="card-title"><%=sitter.name.capitalize%></h5>
                         <p class="card-text"><%=sitter.city.capitalize%>, <%=sitter.state%></p>
                         <p class="card-text"><%=sitter.rate%> #TODO: need to make rate input uniform</p> 
