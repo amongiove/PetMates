@@ -7,7 +7,7 @@
 
             <%= render "users/user_info", f: f %>
         
-            <%= f.input :bio, as: :text, :plaeholder => "Owners will be able to view this on your Sitter profile.", input_html: { class: "form-control", required: true } %>
+            <%= f.input :bio, as: :text, :plaeholder => "Owners will be able to view this on your Sitter profile.", input_html: {:rows => 5, class: "form-control", required: true } %>
             <%= f.input :rate, prepend: "$", append: "/visit", input_html: { class: "form-control", required: true } %>
             <br><%= f.button :submit, class: "btn-primary bg-blue", value: "Update Profile"%><br><br>
         <% end %>  
