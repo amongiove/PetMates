@@ -1,0 +1,31 @@
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th scope="col" class="w-25"></th>
+            <th scope="col" class="w-50"></th>
+            <th scope="col" class="w-25"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <%@messages = Message.order('created_at DESC')%>
+        <%@messages.each do |message|%>
+        <tr>
+            <%if message.user.type == "Owner"%>
+                <td>
+                    <h6><%=message.user.name.capitalize%><h6>
+                    <p class="text-muted"><%=message.time_sent%></p>
+                </td>
+                <td class="text-center"><%=message.content%></td>
+                <td></td>
+            <%else%>
+                <td></td>
+                <td class="text-center"><%=message.content%></td>
+                <td>
+                    <h6 class="text-end"><%=message.user.name.capitalize%><h6>
+                    <p class="text-end text-muted"><%=message.time_sent%></p>
+                </td>
+            <%end%>
+        </tr>
+        <%end%>
+    </tbody>
+</table>
