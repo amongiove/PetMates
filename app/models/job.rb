@@ -11,9 +11,16 @@ class Job < ApplicationRecord
 
   def datetime
     datetime = self.date_time
-    binding.pry
-    datetime = datetime.strftime("%A, %d %b %Y %l:%M %p")
-    return datetime
+    datetime = datetime.strftime("%A, %B %e, %Y at %l:%M %p")
+  end
+
+  def completed?
+    if self.completion_status == false
+      return "Incomplete"
+    end
+    if self.completion_status == true
+      return "Complete"
+    end
   end
 
 end

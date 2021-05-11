@@ -6,8 +6,6 @@ class JobsController <ApplicationController
     end
 
     def new
-        puts "NEW JOB"
-        puts params
         @user = User.find_by(id: session[:user_id])
         if @user.type != "Owner"
             redirect_to user_path(@user), notice: "You must be an Owner to do this."
@@ -15,8 +13,6 @@ class JobsController <ApplicationController
     end
 
     def create
-        puts "CREATE"
-        puts params
         @job = Job.new(job_params)
         if @job.save
             redirect_to job_path(@job)
