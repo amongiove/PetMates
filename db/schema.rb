@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_11_022832) do
+ActiveRecord::Schema.define(version: 2021_05_11_165840) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -43,13 +43,12 @@ ActiveRecord::Schema.define(version: 2021_05_11_022832) do
   create_table "jobs", force: :cascade do |t|
     t.integer "sitter_id", null: false
     t.integer "owner_id", null: false
-    t.date "date"
-    t.time "time"
     t.text "specifics"
     t.string "acceptance_status"
     t.boolean "completion_status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "date_time"
     t.index ["owner_id"], name: "index_jobs_on_owner_id"
     t.index ["sitter_id"], name: "index_jobs_on_sitter_id"
   end

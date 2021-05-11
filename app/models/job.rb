@@ -9,5 +9,11 @@ class Job < ApplicationRecord
     self.completion_status = false if self.completion_status.blank?
   end
 
-  
+  def datetime
+    datetime = self.date_time
+    binding.pry
+    datetime = datetime.strftime("%A, %d %b %Y %l:%M %p")
+    return datetime
+  end
+
 end

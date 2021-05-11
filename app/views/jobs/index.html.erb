@@ -6,7 +6,7 @@
                 <hr class="mb-30">
                 <%@jobs.each do |job|%>
                     <ul class="list-inline"> 
-                        <li class="list-inline-item"><%=link_to job.date (job.time), job_path(job)%></li>
+                        <li class="list-inline-item"><%=link_to job.datetime, job_path(job)%></li>
                     </ul>
                 <%end%>
                 <hr class="mb-30">
