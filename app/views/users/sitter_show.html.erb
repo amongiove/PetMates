@@ -3,6 +3,13 @@
         <div class="card">
             <div class="card-body">
                 <h1 class="form-title"><%=@sitter.name.capitalize%></h1>
+                <section class="profile-image">
+                    <%if @sitter.image.attached?%>
+                        <%= image_tag @sitter.image, size: "100x100" %>
+                    <%else%>
+                        <%= image_tag ("default_user_image.png"), size: "100x100" %>
+                    <%end%>
+                </section><br>
                 <h5 class="form-title text-muted"><%=@sitter.city.capitalize%>, <%=@sitter.state%>  |  <%=@sitter.rate%></h5>
                 <hr class="mb-30">
                 <h6 class="card-title">Meet <%=@sitter.name.capitalize%>:</h6>
