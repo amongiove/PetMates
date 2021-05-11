@@ -27,7 +27,9 @@ Rails.application.routes.draw do
     resources :jobs, only: [:new]
   end
 
-  resources :jobs 
+  resources :jobs do
+    resources :messages, only: [:new, :edit]
+  end 
   
 
 
