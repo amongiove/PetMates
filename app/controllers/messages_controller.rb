@@ -6,6 +6,13 @@ class MessagesController < ApplicationController
     end
 
     def create
+        @job = Job.find_by(id: params[:job_id])
+        @message = Message.new(message_params)
+        if @message.save
+            redirect_to job_path(@job), notice: "Message Sent."
+        else
+            redirect_to job_path(@job), notice: "Unable to send message at this time." #TODO: make this more specific
+        end
     end
 
     private

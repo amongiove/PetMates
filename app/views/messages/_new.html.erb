@@ -1,4 +1,4 @@
-<%= simple_form_for :message, url: new_job_message_path(@job), html: { method: "post"} do |f| %>
+<%= simple_form_for :message, url: job_messages_path(@job), html: { method: "post"} do |f| %>
     <%= f.hidden_field :user_id, :value => @user.id %>
     <%= f.hidden_field :job_id, :value => @job.id %>
     <%=f.input :content, label: false, as: :text, :placeholder => "Send a new message...", input_html: {class: "form-control", required: true} %>
