@@ -1,5 +1,13 @@
+<h5 class="form-title text-muted"><%=@job.datetime%> | <%=@job.completed?%></h5>
+<h6 class="form-title text-muted">Sitter: <%=@sitter.name.capitalize%> | Owner: <%=@owner.name.capitalize%> </h6>
+<hr class="mb-30">
+
 <h5 class="card-title">Owner Specifications:</h5>
 <p><%=@job.specifics%></p>
+<a class="text-white btn bg-blue btn-block shadow-sm" href="/owners/<%=@owner.id%>">View Owner Information</a>
+#TODO: make this only for sitter?
+<hr class="mb-30">
+
 <h5 class="card-title">Conversation:</h5>
 <p>form for new messages</p>
 <p>Messages listed below</p>

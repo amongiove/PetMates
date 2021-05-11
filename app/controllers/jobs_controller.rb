@@ -32,6 +32,15 @@ class JobsController <ApplicationController
         render :sitter_job if @user == @sitter
     end
 
+    def update #accept or decline
+        puts "UPDATE"
+        puts params
+        @job = Job.find_by(id: params[:id])
+        @job.update(job_params)
+        @job.save
+        redirect_to job_path(@job), notice: "Status Updated."
+    end
+
     private
 
     def job_params 

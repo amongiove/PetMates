@@ -24,7 +24,9 @@ class Job < ApplicationRecord
   end
 
   def accepted?
-    return nil unless self.acceptance_status == "Accepted"
+    if self.acceptance_status == "Accepted"
+      return true
+    end
   end
      
 end

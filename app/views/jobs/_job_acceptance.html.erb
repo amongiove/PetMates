@@ -1,11 +1,15 @@
+<h5 class="card-title">Date:</h5>
+<p><%=@job.datetime%></p>
+<hr class="mb-30">
+
 <h5 class="card-title">Job Details:</h5>
 <p><%=@job.specifics%></p>
+<hr class="mb-30">
 
-<a class="text-white btn bg-blue btn-block shadow-sm" href="/owners/<%=@owner.id%>">View Owner Profile</a>
 
-
+<h5 class="card-title">Do you accept this job?</h5>
 <%= simple_form_for :job, url: job_path(@job), html: { method: "patch"} do |f| %>
-    <%= f.input :acceptance_status, as: :radio_buttons, collection: [['Accept', 'Accepted'] ,['Decline', 'Declined']], wrapper: :vertical_collection_inline, input_html: { class: "radio", required: true } %>
+    <%= f.input :acceptance_status, as: :radio_buttons, collection: [['Accept', 'Accepted'] ,['Decline', 'Declined']], :label => "", wrapper: :vertical_collection_inline, input_html: { class: "radio", required: true } %>
     <br><%= f.button :submit, class: "text-white btn bg-blue btn-block shadow-sm", value: "Update Status" %>
 <%end%>
             
