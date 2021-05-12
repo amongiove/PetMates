@@ -45,7 +45,7 @@ class UsersController < ApplicationController
 
     def sitter_show #sitters_show
         @sitter = Sitter.find_by(id: params[:id])
-        @rating = @sitter.average_rating
+        @user = User.find_by(id: session[:user_id])
     end
 
     def owner_show 

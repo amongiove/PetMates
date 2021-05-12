@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_11_165840) do
+ActiveRecord::Schema.define(version: 2021_05_12_224648) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(version: 2021_05_11_165840) do
     t.integer "sitter_id", null: false
     t.integer "owner_id", null: false
     t.text "review"
-    t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["owner_id"], name: "index_reviews_on_owner_id"

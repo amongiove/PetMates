@@ -15,31 +15,16 @@
                 <h6 class="card-title">Meet <%=@sitter.name.capitalize%>:</h6>
                 <p> <%=@sitter.bio%></p>
                 <hr class="mb-30">
-                #TODO: add stars
-                <%if @rating != 0 %>
-                    <h6 class="card-title">Average rating:</h6>
-                    <p><%=@rating%>/5</p> 
-                    <% @rating.times do  %>
-                        <span class="glyphicon glyphicon-star"></span>
-                    <% end %>
-                    <% @sitter.blank_stars.times do %>
-                       <span class="glyphicon glyphicon-star-empty"></span> 
-                    <% end %>
-
-                <%else%>
-                    <h6 class="card-title">No Ratings</h6>
-                <% end%> 
-                <hr class="mb-30">
-
+        
                 <%if !@sitter.reviews.empty?%>
-                    <h6 class="card-title">What other have to say:</h6>
+                    <h6 class="card-title">What others have to say:</h6>
                         <%@sitter.reviews.each do |review|%>
                             <ul> 
                                 <li><%=Owner.find_by(id: review.owner_id).name.capitalize%> said: <%=review.review%></li>
                             </ul>
                         <%end%>
                 <%else%>
-                    <h6 class="card-title">No Reviews</h6>
+                    <h6 class="card-title">No feedback currently available.</h6>
                 <%end%>
                 <a class="text-white btn bg-blue btn-block shadow-sm" href=<%=new_sitter_review_path(@sitter)%>>Leave a Review</a>
                 <hr class="mb-30">
@@ -50,5 +35,20 @@
     </div>  
 </div>
 
+<button type="button" class="text-white btn bg-blue btn-block shadow-sm right-align" data-toggle="modal" data-target="#ModalReviewForm">
+  Leave a Review
+</button>
 
+<!-- Modal -->
+<%= simple_form_for :review, url: sitter_reviews_path(@sitter), html: { method: "post"} do |f| %>
+  <div class="modal-body">
+    <%= f.hidden_field :sitter_id, :value => @sitter.id %>
+    <%= f.hidden_field :owner_id, :value => @user.id %>
+    <%=f.input :review, label: false, as: :text, :placeholder => "Write your review here...", input_html: {class: "form-control", required: true} %>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+    <%= f.button :submit, class: "text-white btn-sm bg-blue btn-block shadow-sm", value: "Submit Review" %>
+  </div>
+<% end %>
                
