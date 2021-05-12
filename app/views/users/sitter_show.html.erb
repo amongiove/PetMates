@@ -19,11 +19,18 @@
                 <%if @rating != 0 %>
                     <h6 class="card-title">Average rating:</h6>
                     <p><%=@rating%>/5</p> 
-                    <div class="star-rating" data-score=<%=@rating%>></div>
+                    <% @rating.times do  %>
+                        <span class="glyphicon glyphicon-star"></span>
+                    <% end %>
+                    <% @sitter.blank_stars.times do %>
+                       <span class="glyphicon glyphicon-star-empty"></span> 
+                    <% end %>
+
                 <%else%>
                     <h6 class="card-title">No Ratings</h6>
                 <% end%> 
                 <hr class="mb-30">
+
                 <%if !@sitter.reviews.empty?%>
                     <h6 class="card-title">What other have to say:</h6>
                         <%@sitter.reviews.each do |review|%>
