@@ -11,23 +11,15 @@
                     <%end%>
                 </section><br>
                 <hr class="mb-30">
-
                 <%= simple_form_for :review, url: sitter_reviews_path(@sitter), html: { method: "post"} do |f| %>
-                    <%= f.hidden_field :owner_id, :value => @user.id %>
                     <%= f.hidden_field :sitter_id, :value => @sitter.id %>
-                    <fieldset>
-                        <span class="star-cb-group">
-                            <input type="radio" id="rating-5" name="rating" value="5" /><label for="rating-5">5</label>
-                            <input type="radio" id="rating-4" name="rating" value="4" /><label for="rating-4">4</label>
-                            <input type="radio" id="rating-3" name="rating" value="3" /><label for="rating-3">3</label>
-                            <input type="radio" id="rating-2" name="rating" value="2" /><label for="rating-2">2</label>
-                            <input type="radio" id="rating-1" name="rating" value="1" /><label for="rating-1">1</label>
-                            <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" /><label for="rating-0">0</label>
-                        </span>
-                    </fieldset>
-                    <%=f.input :review, as: :text, :label => "", :placeholder => "Write your review here.", :input_html => { :rows => 5, class: "form-control", required: true}%> 
-                    
-                    <br><br><%= f.button :submit, class: "text-white btn bg-blue btn-block shadow-sm", value: "Submit Review" %>
+                    <%= f.hidden_field :owner_id, :value => @user.id %>
+                    <%=f.collection_radio_buttons :rating, [[0, '0'], [1, '1'] ,[2, '2'], [3, '3'], [4, '4'], [5, '5']], :first, :last, { item_wrapper_tag: false } do |b|
+                        b.radio_button + b.label(:class => "collection_radio_buttons icon-star")
+                    end %>
+                    #TODO: Stars
+                    <%=f.input :review, label: false, as: :text, :placeholder => "Write your review here...", input_html: {class: "form-control", required: true} %>
+                    <br><%= f.button :submit, class: "text-white btn-sm bg-blue btn-block shadow-sm", value: "Submit Review" %>
                 <%end%>
             </div>
         </div>

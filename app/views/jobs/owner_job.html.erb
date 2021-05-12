@@ -14,7 +14,7 @@
 
                 <h5 class="card-title">Completion Status: <%=@job.completed?%></h5>
                 <hr class="mb-30">
-
+                #TODO: need this?
                 <%if @job.completed? == "Complete" %>
                     <a class="text-white btn bg-blue btn-block shadow-sm" href=<%=new_sitter_review_path(@sitter)%>>Review <%=@sitter.name.capitalize%></a>
 

@@ -1,7 +1,6 @@
 class ReviewsController < ApplicationController
 
     def new
-        puts "NEW"
         @user = User.find_by(id: session[:user_id])
         @sitter = Sitter.find_by(id: params[:sitter_id])
         if @user.type != "Owner"
@@ -10,14 +9,11 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        puts "CREATE"
-        puts params
-        binding.pry
         @review = Review.new(review_params)
         if @review.save
-            redirect_to "/sitters/#{@sitter.id}"
+            redirect_to "/sitters/#{params[:sitter_id]}"
         else
-            redirect_to "/sitters/#{@sitter.id}", notice: "Unable to complete request." #TODO: make this more specific
+            redirect_to "/sitters/#{params[:sitter_id]}", notice: "Unable to submit review." #TODO: make this more specific
         end
     end
 

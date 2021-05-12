@@ -19,6 +19,7 @@
                 <%if @rating != 0 %>
                     <h6 class="card-title">Average rating:</h6>
                     <p><%=@rating%>/5</p> 
+                    <div class="star-rating" data-score=<%=@rating%>></div>
                 <%else%>
                     <h6 class="card-title">No Ratings</h6>
                 <% end%> 
@@ -33,7 +34,9 @@
                 <%else%>
                     <h6 class="card-title">No Reviews</h6>
                 <%end%>
+                <a class="text-white btn bg-blue btn-block shadow-sm" href=<%=new_sitter_review_path(@sitter)%>>Leave a Review</a>
                 <hr class="mb-30">
+                
                 <a class="text-white btn bg-blue btn-block shadow-sm right-align" href=<%=new_sitter_job_path(@sitter)%>>Request Services</a>
             </div>
         </div>
