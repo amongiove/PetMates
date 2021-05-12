@@ -33,9 +33,6 @@ class JobsController <ApplicationController
     end
 
     def update 
-        puts "UPDATE"
-        puts params
-        binding.pry
         @job = Job.find_by(id: params[:id])
         @job.update(job_params)
         @job.save

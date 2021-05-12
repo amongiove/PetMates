@@ -7,7 +7,7 @@
         </tr>
     </thead>
     <tbody>
-        <%@messages = Message.order('created_at DESC')%>
+        <%@messages = Message.order('created_at DESC').where(job_id: @job.id)%>
         <%@messages.each do |message|%>
         <tr>
             <%if message.user.type == "Owner"%>
