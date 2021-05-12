@@ -28,9 +28,10 @@ Rails.application.routes.draw do
   end
 
   resources :jobs do
-    resources :messages #only new? locks up
+    resources :messages #TODO: only new? -- locks up
   end 
 
+  resources :reviews
 
 end
 
