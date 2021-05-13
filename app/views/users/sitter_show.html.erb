@@ -24,10 +24,14 @@
                             </ul>
                         <%end%>
                 <%else%>
-                    <h6 class="card-title">No feedback currently available.</h6>
+                    <h6 class="card-title text-muted">No feedback currently available.</h6>
                 <%end%>
-                <a class="text-white btn bg-blue btn-block shadow-sm" href=<%=new_sitter_review_path(@sitter)%>>Leave a Review</a>
+               <!--- <a class="text-white btn bg-blue btn-block shadow-sm" href=<%=new_sitter_review_path(@sitter)%>>Leave a Review</a>-->
+                <p class="card-title">Leave a Review.</p>
+                <%=render 'reviews/new'%>
+                #TODO: look into make this a modal
                 <hr class="mb-30">
+                
                 
                 <a class="text-white btn bg-blue btn-block shadow-sm right-align" href=<%=new_sitter_job_path(@sitter)%>>Request Services</a>
             </div>
@@ -35,20 +39,3 @@
     </div>  
 </div>
 
-<button type="button" class="text-white btn bg-blue btn-block shadow-sm right-align" data-toggle="modal" data-target="#ModalReviewForm">
-  Leave a Review
-</button>
-
-<!-- Modal -->
-<%= simple_form_for :review, url: sitter_reviews_path(@sitter), html: { method: "post"} do |f| %>
-  <div class="modal-body">
-    <%= f.hidden_field :sitter_id, :value => @sitter.id %>
-    <%= f.hidden_field :owner_id, :value => @user.id %>
-    <%=f.input :review, label: false, as: :text, :placeholder => "Write your review here...", input_html: {class: "form-control", required: true} %>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-    <%= f.button :submit, class: "text-white btn-sm bg-blue btn-block shadow-sm", value: "Submit Review" %>
-  </div>
-<% end %>
-               

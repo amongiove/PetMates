@@ -43,7 +43,7 @@ class UsersController < ApplicationController
        
     end
 
-    def sitter_show #sitters_show
+    def sitter_show 
         @sitter = Sitter.find_by(id: params[:id])
         @user = User.find_by(id: session[:user_id])
     end
