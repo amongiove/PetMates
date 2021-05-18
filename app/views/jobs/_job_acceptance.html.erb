@@ -2,6 +2,10 @@
 <p><%=@job.datetime%></p>
 <hr class="mb-30">
 
+<h5 class="card-title">Location:</h5>
+<p><%=@job.owner.city.capitalize%>, <%=@job.owner.state%></p>
+<hr class="mb-30">
+
 <h5 class="card-title">Job Details:</h5>
 <p><%=@job.specifics%></p>
 <hr class="mb-30">
