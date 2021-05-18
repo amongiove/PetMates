@@ -36,7 +36,11 @@
             </li>
           <%end%>
           <li class="nav-item active">
-            <a class="nav-link" href=<%=jobs_path%>>Jobs <span class="sr-only"></span></a>
+            <%if User.find_by(id: session[:user_id]).type == "Sitter" && Sitter.find_by(id: session[:user_id]).pending? == true %>
+              <a class="nav-link" href=<%=jobs_path%>><span class=" notification badge">! </span>Jobs<span class="sr-only"></span></a>
+            <%else%>
+              <a class="nav-link" href=<%=jobs_path%>>Jobs <span class="sr-only"></span></a>
+            <%end%>
           </li>
         <%end%>
       </ul>

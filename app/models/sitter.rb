@@ -7,4 +7,8 @@ class Sitter < User
         where("LOWER(city) LIKE ?", "%#{params}%")
     end
 
+    def pending?
+        self.jobs.where("acceptance_status" => "Pending")
+    end
+
 end
