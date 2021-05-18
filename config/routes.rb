@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   resources :sitters, :controller => 'users', type: 'Sitter', only:[] do
     resources :jobs, only: [:new]
-    resources :reviews #does this need to be nested??
+    resources :reviews #TODO: only new?
   end
 
   resources :jobs do

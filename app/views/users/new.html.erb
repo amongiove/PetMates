@@ -1,24 +1,22 @@
-<div class="user_type_selection ">
-    <div class="h-md-100 align-items-center">
-        <div class="text-white align-items-center p-5 text-center justify-content-center">
-            <div class="signup-form col-md-4 mx-auto">
-                <h1 class="mb-0 mt-4 ">Sign Up</h1><br><br>
+<div class="row d-flex justify-content-center mt-50 mb-50">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="form-title">Sign Up</h1><br><br>
                 <div class="errors">
                     <%=flash[:message]%>
                 </div>
 
                 <%= simple_form_for :user do |f| %>
-                    <%= f.input :name, required: true%>
-                    <%= f.input :email %>
-                    <%= f.input :password %>
-
+                    <%=f.input :name, label: false, :placeholder => "Name", input_html: {class: "form-control", required: true} %><br>
+                    <%=f.input :email, label: false, :placeholder => "Email", input_html: {class: "form-control", required: true}  %><br>
+                    <%=f.input :password, label: false, :placeholder => "Password", input_html: {class: "form-control", required: true}%><br>
                     #TODO: verify password field here
+
+                    <h3 class="form-title text-muted">Select an option.</h3><br>
+                    <%= f.input :type, as: :radio_buttons, collection: user_types, wrapper: :horizontal_collection_inline, :label => "", input_html: {class: "mx-auto", required: true} %>
                     
-                    <h3 class="mb-0 mt-4 ">Choose an option.</h3><br>
-                    <%= f.input :type, as: :radio_buttons, collection: user_types, wrapper: :horizontal_collection_inline, label: false %>
-                    #TODO: center buttons 
-                    
-                    <br><%= f.button :submit, class: "btn btn-outline-light btn-lg btn-round", value: "Create Profile" %>
+                    <br><%= f.button :submit, class: "text-white btn bg-blue btn-block shadow-sm", value: "Create Profile" %>
 
                 <%end%>
             </div>
