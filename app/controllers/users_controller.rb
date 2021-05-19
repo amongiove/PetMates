@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     def edit
         @user = User.find_by(id: params[:id])
         render :type_selection if @user.type.blank?
+        #TODO need to fix center style on this page - check with carl email
         render :owner_info if @user.type == "Owner"
         render :sitter_info if @user.type == "Sitter"
     end
@@ -45,7 +46,7 @@ class UsersController < ApplicationController
 
     def sitter_show 
         @sitter = Sitter.find_by(id: params[:id])
-        @user = User.find_by(id: session[:user_id])
+        @user = current_user
     end
 
     def owner_show 

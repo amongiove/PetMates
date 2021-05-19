@@ -1,6 +1,6 @@
 class PetsController < ApplicationController 
 
-    #TODO: refactor repeated @owner= and @pet= code
+    #TODO: refactor repeated @pet= code
 
     def index
         @owner = current_user
@@ -47,7 +47,6 @@ class PetsController < ApplicationController
         @pet.destroy
         redirect_to owner_pets_path(@owner)
     end
-
 
     private 
   

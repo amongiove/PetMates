@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
 
     def new
-        @user = User.find_by(id: session[:user_id])
+        @user = current_user
         @sitter = Sitter.find_by(id: params[:sitter_id])
         if @user.type != "Owner"
             redirect_to sitters_path, notice: "You must be an Owner to leave a review."
