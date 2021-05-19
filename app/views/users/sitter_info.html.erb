@@ -7,19 +7,18 @@
 
             <%= render "users/user_info", f: f %>
         
-            <%= f.input :bio, as: :text, :plaeholder => "Owners will be able to view this on your Sitter profile.", input_html: {:rows => 5, class: "form-control", required: true } %>
-            <%= f.input :rate, :plaeholder => "$--/visit", :input_prepend => "$", append: "/visit", input_html: {class: "form-control", required: true } %> 
+            <%= f.input :bio, as: :text, placeholder: "Owners will be able to view this on your Sitter profile.", input_html: {:rows => 5, class: "form-control", required: true } %>
             
-            #TODO: make make this a uniform field (for display on sitter-show)
+            <%=f.label :rate%>
+            <div class="input-group mb-3">
+                <span class="input-group-text">$</span>
+                <%= f.input :rate, label: false, placeholder: "00", input_html: {class: "form-control", required: true } %> 
+                <span class="input-group-text">/visit</span>
+            </div> 
+            
             <br><%= f.button :submit, class: "btn-primary bg-blue", value: "Update Profile"%><br><br>
         <% end %>  
     </div>
 </div>
 
-
-    
-      
-
-
-
-
+ 

@@ -38,7 +38,7 @@ class PetsController < ApplicationController
         @pet = Pet.find_by(id: params[:id])
         @pet.update(pet_params)
         @pet.save
-        redirect_to owner_pet_path(@owner, @pet), notice: "#{@pet.name.calitalize}'s Profile Updated."
+        redirect_to owner_pet_path(@owner, @pet), notice: "Profile successfully updated."
     end
 
     def destroy

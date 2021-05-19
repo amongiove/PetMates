@@ -29,7 +29,7 @@ class UsersController < ApplicationController
         @user = User.find_by(id: params[:id])
         @user.update(user_params)
         @user.save
-        redirect_to user_path(@user), notice: "Profile Updated."
+        redirect_to user_path(@user), notice: "Profile successfully updated."
     end
 
     def search_sitters

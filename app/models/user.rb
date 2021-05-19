@@ -4,6 +4,13 @@ class User < ApplicationRecord
     validates :name, presence: true
     validates :email, presence: true, uniqueness: true
     has_one_attached :image
+    after_initialize :set_defaults, unless: :persisted?
+
+  def set_defaults
+    if self.type == "Sitter"
+        self.rate = 0 if self.acceptance_status.blank?
+    end
+  end
  
     def onboarded?
         if self.type == "Owner"

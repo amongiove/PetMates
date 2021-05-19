@@ -3,10 +3,7 @@
         <div class="card">
             <div class="card-body">
                 <h1 class="form-title">Sign Up</h1><br><br>
-                <div class="errors">
-                    <%=flash[:message]%>
-                </div>
-
+               
                 <%= simple_form_for :user do |f| %>
                     <%=f.input :name, label: false, :placeholder => "Name", input_html: {class: "form-control", required: true} %><br>
                     <%=f.input :email, label: false, :placeholder => "Email", input_html: {class: "form-control", required: true}  %><br>
