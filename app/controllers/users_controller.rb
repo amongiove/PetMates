@@ -7,13 +7,15 @@ class UsersController < ApplicationController
         #TODO: put verify pw and authenticate here
         @user = User.new(user_params)
         if @user.save
+            @user.email.downcase!
             session[:user_id] = @user.id
+            flash[:notice] = "Account created successfully!"
             redirect_to user_path(@user)
             
         else
             #TODO: fix flash messages so they are actual error messages
-            render :new, flash.now[:notice] = @user.errors.full_messages.compact
-
+            flash.now[:notice] = "Oops, couldn't create account. Please make sure you are using a valid email and password and try again."
+            render :new
         end
     end
 
@@ -56,6 +58,6 @@ class UsersController < ApplicationController
     private 
   
     def user_params 
-      params.require(:user).permit(:name, :password, :email, :type, :street_address, :city, :state, :zip, :phone_number, :home_access_info, :bio, :rate, :search, :image)
+      params.require(:user).permit(:name, :password, :password_confirmation, :email, :type, :street_address, :city, :state, :zip, :phone_number, :home_access_info, :bio, :rate, :search, :image)
     end
 end
