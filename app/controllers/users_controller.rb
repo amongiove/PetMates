@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    before_action :authorize, only: [:edit, :update, :search_sitters, :sitter_show, :owner_show]
+  
     
     def new
     end

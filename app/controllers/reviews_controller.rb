@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-
+    before_action :authorize
+    
     def new
         @user = current_user
         @sitter = Sitter.find_by(id: params[:sitter_id])

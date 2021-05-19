@@ -10,7 +10,7 @@
                         <%= image_tag ("default_user_image.png"), size: "100x100" %>
                     <%end%>
                 </section><br>
-                <h5 class="form-title text-muted"><%=@sitter.city.capitalize%>, <%=@sitter.state%>  |  <%=@sitter.rate%></h5>
+                <h5 class="form-title text-muted"><%=@sitter.city.capitalize%>, <%=@sitter.state%>  |  $<%=@sitter.rate%>/visit</h5>
                 <hr class="mb-30">
                 <h6 class="card-title">Meet <%=@sitter.name.capitalize%>:</h6>
                 <p> <%=@sitter.bio%></p>
