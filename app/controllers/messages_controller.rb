@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
 
     def new
         @job = Job.find_by(id: params[:job_id])
-        @user = User.find_by(id: session[:user_id])
+        @user = current_user
     end
 
     def create
