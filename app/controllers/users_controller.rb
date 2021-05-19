@@ -4,7 +4,6 @@ class UsersController < ApplicationController
     end
 
     def create
-        #TODO: put verify pw and authenticate here
         @user = User.new(user_params)
         if @user.save
             @user.email.downcase!
@@ -13,7 +12,6 @@ class UsersController < ApplicationController
             redirect_to user_path(@user)
             
         else
-            #TODO: fix flash messages so they are actual error messages
             flash.now[:notice] = "Oops, couldn't create account. Please make sure you are using a valid email and password and try again."
             render :new
         end

@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
         if @review.save
             redirect_to "/sitters/#{params[:sitter_id]}"
         else
-            redirect_to "/sitters/#{params[:sitter_id]}", notice: "Unable to submit review." #TODO: make this more specific
+            redirect_to "/sitters/#{params[:sitter_id]}", notice: "Oops, unable to submit this refiew. Please make sure you are using a valid information and try again." 
         end
     end
 

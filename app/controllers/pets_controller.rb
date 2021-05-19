@@ -17,7 +17,7 @@ class PetsController < ApplicationController
         if @pet.save
             redirect_to owner_pet_path(@owner, @pet)
         else
-            flash.now[:notice] = "Please input valid information." #TODO: make this more specific
+            flash.now[:notice] = "Oops, couldn't create pet profile. Please make sure you are using a valid informaiton and try again."
             render :new
         end
     end
@@ -38,7 +38,7 @@ class PetsController < ApplicationController
         @pet = Pet.find_by(id: params[:id])
         @pet.update(pet_params)
         @pet.save
-        redirect_to owner_pet_path(@owner, @pet), notice: "Pet Profile Updated."
+        redirect_to owner_pet_path(@owner, @pet), notice: "#{@pet.name.calitalize}'s Profile Updated."
     end
 
     def destroy

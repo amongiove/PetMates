@@ -8,7 +8,7 @@ class JobsController <ApplicationController
     def new
         @user = User.find_by(id: session[:user_id])
         if @user.type != "Owner"
-            redirect_to user_path(@user), notice: "You must be an Owner to do this."
+            redirect_to user_path(@user), notice: "Oops! You must be an Owner to request Sitter services."
         end
     end
 
@@ -17,7 +17,7 @@ class JobsController <ApplicationController
         if @job.save
             redirect_to jobs_path
         else
-            flash.now[:notice] = "Unable to complete request." #TODO: make this more specific
+            flash.now[:notice] = "Oops, couldn't complete this request. Please make sure you are using a valid information and try again."
             render :new
         end
     end
@@ -36,7 +36,7 @@ class JobsController <ApplicationController
         @job = Job.find_by(id: params[:id])
         @job.update(job_params)
         @job.save
-        redirect_to job_path(@job), notice: "Staus Updated."
+        redirect_to job_path(@job), notice: "Job staus updated."
     end
 
     private
