@@ -1,8 +1,6 @@
 class User < ApplicationRecord
     has_secure_password
-    #has_many :reviews
     has_many :messages
-    #before_create :set_user_type
     validates :name, presence: true
     validates :email, presence: true, uniqueness: true
     has_one_attached :image

@@ -14,7 +14,7 @@
   </head>
 
   <body>
-<% if User.find_by(id: session[:user_id]) %>
+<% if current_user %>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/"><img src="/assets/petmates_logo.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top">PetMates</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,19 +24,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href=<%=user_path(User.find_by(id: session[:user_id]))%>>Profile</a>
+          <a class="nav-link" href=<%=user_path(current_user)%>>Profile</a>
         </li>
-        <%if User.find_by(id: session[:user_id]).onboarded? %>
-          <%if User.find_by(id: session[:user_id]).type == "Owner"%>
+        <%if current_user.onboarded? %>
+          <%if current_user.type == "Owner"%>
             <li class="nav-item active">
-              <a class="nav-link" href=<%=owner_pets_path(User.find_by(id: session[:user_id]).id)%>>Pets<span class="sr-only"></span></a>
+              <a class="nav-link" href=<%=owner_pets_path(current_user.id)%>>Pets<span class="sr-only"></span></a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="/sitters">Find Sitters <span class="sr-only"></span></a>
             </li>
           <%end%>
           <li class="nav-item active">
-            <%if User.find_by(id: session[:user_id]).type == "Sitter" && Sitter.find_by(id: session[:user_id]).pending? == true %>
+            <%if current_user.type == "Sitter" && Sitter.find_by(id: session[:user_id]).pending? == true %>
               <a class="nav-link" href=<%=jobs_path%>><span class=" notification badge">! </span>Jobs<span class="sr-only"></span></a>
             <%else%>
               <a class="nav-link" href=<%=jobs_path%>>Jobs <span class="sr-only"></span></a>
