@@ -1,12 +1,12 @@
 class JobsController <ApplicationController
 
     def index
-        @user = User.find_by(id: session[:user_id])
+        @user = current_user
         @jobs = @user.jobs
     end
 
     def new
-        @user = User.find_by(id: session[:user_id])
+        @user = current_user
         if @user.type != "Owner"
             redirect_to user_path(@user), notice: "Oops! You must be an Owner to request Sitter services."
         end
@@ -23,7 +23,7 @@ class JobsController <ApplicationController
     end
 
     def show
-        @user = User.find_by(id: session[:user_id])
+        @user = current_user
         @job = Job.find_by(id: params[:id])
         @sitter = Sitter.find_by(id: @job.sitter_id)
         @owner = Owner.find_by(id: @job.owner_id)
