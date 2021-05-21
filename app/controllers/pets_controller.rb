@@ -1,7 +1,5 @@
 class PetsController < ApplicationController 
     before_action :authorize
-  
-
     #TODO: refactor repeated @pet= code
 
     def index

@@ -21,9 +21,6 @@ class UsersController < ApplicationController
 
     def edit
         @user = User.find_by(id: params[:id])
-        puts @user
-        puts current_user
-        puts @user == current_user
         if @user == current_user
             render :type_selection if @user.type.blank?
             #TODO need to fix center style on this page - check with carl email

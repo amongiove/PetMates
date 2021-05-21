@@ -7,8 +7,6 @@
                 <%= simple_form_for :user, url: user_path(@user), html: { method: "patch" } do |f| %>
 
                     <%= f.input :type, as: :radio_buttons, collection: user_types, wrapper: :horizontal_collection_inline, :label => "", input_html: {class: "mx-auto", required: true} %>
-
-                    #TODO: center buttons - check if correct
             
                     <br><%= f.button :submit, class: "btn-primary bg-blue", value: "Save"%>
                 <% end %>
