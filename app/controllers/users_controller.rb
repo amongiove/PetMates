@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :authorize, only: [:edit, :update, :search_sitters, :sitter_show, :owner_show]
+    before_action :authorize, except: [:new, :create]
   
     
     def new
@@ -21,10 +21,18 @@ class UsersController < ApplicationController
 
     def edit
         @user = User.find_by(id: params[:id])
-        render :type_selection if @user.type.blank?
-        #TODO need to fix center style on this page - check with carl email
-        render :owner_info if @user.type == "Owner"
-        render :sitter_info if @user.type == "Sitter"
+        puts @user
+        puts current_user
+        puts @user == current_user
+        if @user == current_user
+            render :type_selection if @user.type.blank?
+            #TODO need to fix center style on this page - check with carl email
+            render :owner_info if @user.type == "Owner"
+            render :sitter_info if @user.type == "Sitter"
+        else
+            flash[:notice] = "Oops, you do not have access to other User's information."
+            redirect_to user_path(current_user)
+        end
     end
 
     def update
