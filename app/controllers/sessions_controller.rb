@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
-            redirect_to '/', notice: "Oops, couldn't login to this account. Please make sure you are using a valid email and password and try again."
+            redirect_to '/', notice: "Oops, couldn't login to this account. Please make sure you are using a valid email and password and try again. #{@user.errors.full_messages}"
         end
     end
 
