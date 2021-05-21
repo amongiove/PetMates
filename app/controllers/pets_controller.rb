@@ -37,8 +37,12 @@ class PetsController < ApplicationController
         @owner = current_user
         @pet = Pet.find_by(id: params[:id])
         @pet.update(pet_params)
-        @pet.save
-        redirect_to owner_pet_path(@owner, @pet), notice: "Profile successfully updated."
+        if @pet.errors.any?
+            redirect_to owner_pet_path(@owner, @pet), notice: "#{@pet.errors.full_messages.to_sentence}"
+        else
+            @pet.save
+            redirect_to owner_pet_path(@owner, @pet), notice: "Profile successfully updated."
+        end
     end
 
     def destroy
