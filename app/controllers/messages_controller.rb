@@ -1,7 +1,6 @@
 class MessagesController < ApplicationController
     before_action :authorize
   
-
     def new
         @job = Job.find_by(id: params[:job_id])
         @user = current_user

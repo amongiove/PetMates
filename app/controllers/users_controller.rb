@@ -43,15 +43,14 @@ class UsersController < ApplicationController
     end
 
     def search_sitters
-    @sitters = Sitter.all
-    if params[:search] && !params[:search].empty?
-        @sitters = Sitter.search(params[:search].downcase)
-        if @sitters.empty?
-            @sitters = Sitter.all
-            flash.now[:notice] = "Sorry. We could not find any Sitters located in #{params[:search].capitalize}."
-        end
-    end
-       
+        @sitters = Sitter.all
+        if params[:search] && !params[:search].empty?
+            @sitters = Sitter.search(params[:search].downcase)
+            if @sitters.empty?
+                @sitters = Sitter.all
+                flash.now[:notice] = "Sorry. We could not find any Sitters located in #{params[:search].capitalize}."
+            end
+        end  
     end
 
     def sitter_show 

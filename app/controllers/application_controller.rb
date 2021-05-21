@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+
     #TODO: need this stuff?
     # protect_from_forgery with: :exception
 

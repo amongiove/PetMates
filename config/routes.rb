@@ -25,11 +25,11 @@ Rails.application.routes.draw do
 
   resources :sitters, :controller => 'users', type: 'Sitter', only:[] do
     resources :jobs, only: [:new]
-    resources :reviews #TODO: only new?
+    resources :reviews 
   end
 
   resources :jobs do
-    resources :messages #TODO: only new? -- locks up
+    resources :messages
   end 
 
   
