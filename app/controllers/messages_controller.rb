@@ -12,8 +12,9 @@ class MessagesController < ApplicationController
         if @message.save
             redirect_to job_path(@job), notice: "Message successfully sent."
         else
-            redirect_to job_path(@job), notice: "Oops! Unable to send message at this time. Please make sure you have valid information and try again." 
-        end
+            flash[:notice] = "Oops! #{@message.errors.full_messages.to_sentence}. Please try again."
+            redirect_to job_path(@job)
+        end  
     end
 
     private

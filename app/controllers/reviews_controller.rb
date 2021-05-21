@@ -13,9 +13,9 @@ class ReviewsController < ApplicationController
     def create
         @review = Review.new(review_params)
         if @review.save
-            redirect_to "/sitters/#{params[:sitter_id]}"
+            redirect_to "/sitters/#{params[:sitter_id]}", notice: "Review Saved."
         else
-            redirect_to "/sitters/#{params[:sitter_id]}", notice: "Oops, unable to submit this refiew. Please make sure you are using a valid information and try again." 
+            redirect_to request.referrer, notice: "Oops! #{@review.errors.full_messages.to_sentence}. Please try again."
         end
     end
 

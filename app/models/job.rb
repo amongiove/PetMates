@@ -3,6 +3,7 @@ class Job < ApplicationRecord
   belongs_to :owner
   has_many :messages
   after_initialize :set_defaults, unless: :persisted?
+  validates :specifics, presence: true
 
   def set_defaults
     self.acceptance_status = "Pending" if self.acceptance_status.blank?

@@ -37,7 +37,7 @@ class UsersController < ApplicationController
         @user.update(user_params)
         puts @user.errors.full_messages
         if @user.errors.any?
-            redirect_to user_path(@user), notice: "#{@user.errors.full_messages.to_sentence}"
+            redirect_to user_path(@user), notice: "#{@user.errors.full_messages.to_sentence}."
         else
             @user.save
             redirect_to user_path(@user), notice: "Profile successfully updated."

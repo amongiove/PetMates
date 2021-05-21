@@ -4,14 +4,12 @@ class User < ApplicationRecord
     # TODO: want this validation but doesnt work with test oauth login (my google acct)
     #validates :password, length: { minimum: 6}
     validates :zip, length: {minimum: 5}
-    #TODO: still updates without changing this -- add error message
     validates :phone_number, length: {minimum: 10}
-    #TODO: still updates without changing this -- add error message
     validates :name, presence: true
     validates :email, presence: true, uniqueness: true
     has_one_attached :image
     after_initialize :set_defaults, unless: :persisted?
-    #TODO: validate email format and phone number 
+    #TODO: validate email format 
 
   def set_defaults
     if self.type == "Sitter"

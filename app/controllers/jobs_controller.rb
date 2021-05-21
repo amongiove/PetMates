@@ -17,10 +17,9 @@ class JobsController <ApplicationController
     def create
         @job = Job.new(job_params)
         if @job.save
-            redirect_to jobs_path
+            redirect_to jobs_path, notice: "Request sent."
         else
-            flash.now[:notice] = "Oops, couldn't complete this request. Please make sure you are using a valid information and try again."
-            render :new
+            redirect_to request.referrer, notice: "Oops! #{@job.errors.full_messages.to_sentence}. Please try again."
         end
     end
 

@@ -38,7 +38,7 @@ class PetsController < ApplicationController
         @pet = Pet.find_by(id: params[:id])
         @pet.update(pet_params)
         if @pet.errors.any?
-            redirect_to owner_pet_path(@owner, @pet), notice: "#{@pet.errors.full_messages.to_sentence}"
+            redirect_to owner_pet_path(@owner, @pet), notice: "#{@pet.errors.full_messages.to_sentence}."
         else
             @pet.save
             redirect_to owner_pet_path(@owner, @pet), notice: "Profile successfully updated."
