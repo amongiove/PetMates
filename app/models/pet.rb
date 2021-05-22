@@ -4,8 +4,6 @@ class Pet < ApplicationRecord
   validates :care_instructions, presence: true, length: {maximum: 500}
   validate :acceptable_image
 
-  #TODO: this is all repeated in User.rb -- is there a way to refactor??
-
   def acceptable_image
     return unless image.attached?
 
