@@ -4,9 +4,9 @@
     <%= simple_form_for :pet, url: owner_pet_path(@owner, @pet), html: { method: "patch"} do |f| %>
 
         <%if @pet.image.attached?%>
-            <%= image_tag @pet.image, width:"100", height: :auto%>
+            <%= image_tag @pet.image.variant(resize_to_limit: [150, 150])%>
         <%else%>
-            <%= image_tag ("default_pet_image.jpg"), size: "100x100" %>
+            <%= image_tag ("default_pet_image.jpg"), size: "150x150" %>
         <%end%><br><br>
         <p>Upload new picture</p> 
         <%= f.file_field :image %><br><br>
