@@ -2,7 +2,7 @@ class Sitter < User
     has_many :jobs
     has_many :owners, through: :jobs
     has_many :reviews
-    # validates :bio, length: {minimum: 1}
+    validates :bio, presence: true, allow_nil: true
 
     def self.search(params)
         where("LOWER(city) LIKE ?", "%#{params}%")

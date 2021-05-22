@@ -3,8 +3,8 @@ class User < ApplicationRecord
     has_many :messages
     # TODO: want this validation but doesnt work with test oauth login (my google acct)
     #validates :password, length: { minimum: 6}
-    validates :zip, length: {minimum: 5}
-    validates :phone_number, length: {minimum: 10}
+    validates :zip, length: {minimum: 5}, allow_nil: true
+    validates :phone_number, length: {minimum: 10}, allow_nil: true
     validates :name, presence: true
     validates :email, presence: true, uniqueness: true
     validates_format_of :email, {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }

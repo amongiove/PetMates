@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
     before_action :authorize, except: [:new, :create]
   
-    
     def new
     end
 
@@ -23,7 +22,6 @@ class UsersController < ApplicationController
         @user = User.find_by(id: params[:id])
         if @user == current_user
             render :type_selection if @user.type.blank?
-            #TODO need to fix center style on this page - check with carl email
             render :owner_info if @user.type == "Owner"
             render :sitter_info if @user.type == "Sitter"
         else
@@ -35,7 +33,6 @@ class UsersController < ApplicationController
     def update
         @user = User.find_by(id: params[:id])
         @user.update(user_params)
-        puts @user.errors.full_messages
         if @user.errors.any?
             redirect_to user_path(@user), notice: "#{@user.errors.full_messages.to_sentence}."
         else
@@ -63,7 +60,6 @@ class UsersController < ApplicationController
     def owner_show 
         @owner = Owner.find_by(id: params[:id])
     end
-
 
     private 
   
