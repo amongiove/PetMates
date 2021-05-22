@@ -12,7 +12,7 @@
             <%=f.label :rate%>
             <div class="input-group mb-3">
                 <span class="input-group-text">$</span>
-                <%= f.input :rate, label: false, placeholder: "00", input_html: {class: "form-control", required: true } %> 
+                <%= f.input :rate, as: :integer, label: false, placeholder: "00", input_html: {min: 0, class: "form-control", required: true } %> 
                 <span class="input-group-text">/visit</span>
             </div> 
             

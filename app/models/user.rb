@@ -6,7 +6,7 @@ class User < ApplicationRecord
     validates :zip, length: {minimum: 5}, allow_nil: true
     validates :phone_number, length: {minimum: 10}, allow_nil: true
     validates :name, presence: true
-    validates :email, presence: true, uniqueness: true
+    validates :email, presence: true, uniqueness: true, unless: :persisted?
     validates_format_of :email, {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
     has_one_attached :image
     after_initialize :set_defaults, unless: :persisted?
