@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get 'auth/google_oauth2/callback', to: 'sessions#googleAuth'
   
-  get '/users/(:id)', to: "users#edit" #user personal show page/onboarding
+  get '/users/(:id)', to: "users#edit" 
 
   resources :users
 
@@ -32,7 +32,6 @@ Rails.application.routes.draw do
     resources :messages
   end 
 
-  
 end
 
 

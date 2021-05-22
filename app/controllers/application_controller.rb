@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
 
+    rescue_from ActionController::RoutingError, :with => :render_404
+
     #TODO: need this stuff?
     # protect_from_forgery with: :exception
 
