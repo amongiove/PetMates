@@ -6,7 +6,7 @@
                 <%= simple_form_for :job, url: jobs_path, html: { method: "post"} do |f| %>
                     <%= f.hidden_field :owner_id, :value => @user.id %>
                     <%= f.hidden_field :sitter_id, :value => params[:sitter_id] %>
-                    <%=f.input :date_time, :label => "Date and time of requested service", as: :datetime, html5: true, input_html: { min: DateTime.current, class: "form-control", required: true }%><br>
+                    <%=f.input :date_time, :label => "Date and time of requested service", as: :datetime, html5: true, input_html: { min: Date.current, class: "form-control", required: true }%><br>
                     <%=f.input :specifics, as: :text, :label => "Tell me more about the services you would like.", :placeholder => "Who are the pets I will be taking care of? What would you like done? etc.", :input_html => { :rows => 5, class: "form-control", required: true}%> 
                     <br><br><%= f.button :submit, class: "text-white btn bg-blue btn-block shadow-sm", value: "Submit Request" %>
                 <%end%>

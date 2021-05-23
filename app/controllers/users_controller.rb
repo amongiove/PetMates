@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     end
 
     def edit
+        puts 'start update'
         @user = User.find_by(id: params[:id])
         if @user == current_user
             render :type_selection if @user.type.blank?
@@ -31,7 +32,10 @@ class UsersController < ApplicationController
     end
 
     def update
+        puts 'start update'
         @user = User.find_by(id: params[:id])
+        puts @user
+        puts user_params
         @user.update(user_params)
         if @user.errors.any?
             redirect_to user_path(@user), notice: "#{@user.errors.full_messages.to_sentence}."

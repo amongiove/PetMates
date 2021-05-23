@@ -10,7 +10,12 @@ class Sitter < User
     end
 
     def pending?
-        self.jobs.where("acceptance_status" => "Pending")
+        if 
+            self.jobs.where("acceptance_status" => "Pending")
+            return true
+        else
+            return false
+        end
     end
 
 end
